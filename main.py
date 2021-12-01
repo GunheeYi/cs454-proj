@@ -12,19 +12,19 @@ def zipDirectory(path, ziph):
 def applyParameters(parameters):
 
     # # (parameters) = (changed value) # (original value)
-
+    # parameters = dict()
     # # barstow_engine_v8.jbeam
-    # maxRPM = 6000 # 5000
-    # engineInertia = 0.3 # 0.2
-    # engineBrakeTorque = 60 # 50
-    # engineNodeWeightMul = 1.2 # multiplier; original weights given by exact value but divided into three parts (29.5+3+3)
+    # parameters['maxRPM'] = 6000 # 5000
+    # parameters['engineInertia'] = 0.3 # 0.2
+    # parameters['engineBrakeTorque'] = 60 # 50
+    # parameters['engineNodeWeightMul'] = 1.2 # multiplier; original weights given by exact value but divided into three parts (29.5+3+3)
     # # barstow_brakes.jbeam
-    # brakeMulF = 2200 # 2000
-    # brakeMulR = 1000 # 950
+    # parameters['brakeMulF'] = 2200 # 2000
+    # parameters['brakeMulR'] = 1000 # 950
     # #barstow_body.jbeam
-    # bodyNodeWeightMul = 1.2
+    # parameters['bodyNodeWeightMul'] = 1.2
     # #common
-    # wheelRadius = 0.4 # 0.325
+    # parameters['wheelRadius'] = 0.4 # 0.325
 
     with open('./barstow/vehicles/barstow/barstow_engine_v8.jbeam', 'r') as f:
         t = f.readlines()
