@@ -1,0 +1,886 @@
+{
+  "barstow" : {
+    "name" : "barstow",
+    "mapTo" : "barstow_old",
+    "class" : "Material",
+    "persistentId" : "0cd12e7a-4829-451e-abd4-be47736722b3",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_d.dds",
+        "normalMap" : "vehicles/barstow/barstow_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_c.dds",
+        "instanceDiffuse" : true,
+        "normalMap" : "vehicles/barstow/barstow_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_s.dds",
+        "specularPower" : 10,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_chrome.dds",
+        "colorPaletteMap" : "vehicles/barstow/barstow_skin_chrome.dds",
+        "normalMap" : "vehicles/barstow/barstow_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      }
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_main" : {
+    "name" : "barstow_main",
+    "mapTo" : "barstow",
+    "class" : "Material",
+    "persistentId" : "3fe3d553-a2de-4e29-8d18-3351b5bce90e",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "baseColorMap": "/vehicles/barstow/barstow_main_b.color.png",
+        "metallicFactor": 1,
+        "roughnessFactor": 1,
+        "metallicMap": "/vehicles/barstow/barstow_main_m.data.png",
+        "normalMap": "vehicles/barstow/barstow_main_n.normal.png",
+        "roughnessMap": "/vehicles/barstow/barstow_main_r.data.png",
+        "useAnisotropic": true
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "clearCoatFactor": 1,
+        "clearCoatMap": "/vehicles/barstow/barstow_main_cc.data.png",
+        "clearCoatRoughnessFactor": 1,
+        "colorPaletteMap": "/vehicles/barstow/barstow_main_p.color.png",
+        "colorPaletteMapUseUV": 1,
+        "instanceDiffuse": true,
+        "metallicFactor": 1,
+        "normalMap": "/vehicles/barstow/barstow_main_n.normal.png",
+        "opacityMap": "/vehicles/barstow/barstow_main_c.data.png",
+        "useAnisotropic": true
+      },
+      {},
+      {}
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 0,
+    "version": 1.5
+  },
+  "barstow_brakelight" : {
+    "name" : "barstow_brakelight",
+    "class" : "Material",
+    "persistentId" : "2522eb32-7e9b-45a9-a1e9-30c082f3a548",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_brakelight"
+  },
+  "barstow_decals_black" : {
+    "name" : "barstow_decals_black",
+    "class" : "Material",
+    "persistentId" : "1866303c-d2fb-4172-8f52-7a124499133c",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 0, 0, 0, 1 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "barstow_decals_d.dds",
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 0, 0, 0, 0.6499999761581421 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_decals_black",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : true,
+    "translucentZWrite" : true
+  },
+  "barstow_decals_blue" : {
+    "name" : "barstow_decals_blue",
+    "class" : "Material",
+    "persistentId" : "39282f31-6cf1-410e-9e43-73e87e2c9884",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 0, 0, 1, 1 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "barstow_decals_d.dds",
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 0, 0, 1, 0.6499999761581421 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_decals_blue",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : true,
+    "translucentZWrite" : true
+  },
+  "barstow_decals_red" : {
+    "name" : "barstow_decals_red",
+    "class" : "Material",
+    "persistentId" : "288c2fdc-1672-404f-be68-0f3a0e86bd46",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 1, 0, 0, 1 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "barstow_decals_d.dds",
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 1, 0, 0, 0.6499999761581421 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_decals_red",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : true,
+    "translucentZWrite" : true
+  },
+  "barstow_decals_white" : {
+    "name" : "barstow_decals_white",
+    "class" : "Material",
+    "persistentId" : "e563b4bf-1993-4a73-a884-a2e68443bbba",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "barstow_decals_d.dds",
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 1, 1, 1, 0.6499999761581421 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_decals_white",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : true,
+    "translucentZWrite" : true
+  },
+  "barstow_decals_yellow" : {
+    "name" : "barstow_decals_yellow",
+    "class" : "Material",
+    "persistentId" : "17605529-464a-4a44-a817-344b26a41827",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 1, 1, 0, 1 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "barstow_decals_d.dds",
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_decals_d.dds",
+        "diffuseColor" : [ 1, 1, 0, 0.6499999761581421 ],
+        "normalMap" : "vehicles/common/null_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_decals_yellow",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : true,
+    "translucentZWrite" : true
+  },
+  "barstow_engine_v8" : {
+    "name" : "barstow_engine_v8",
+    "class" : "Material",
+    "persistentId" : "bd9110fe-18d6-4d9e-b728-1868096de528",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_engine_v8_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_engine_v8_d.dds",
+        "normalMap" : "vehicles/barstow/barstow_engine_v8_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_engine_v8_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_engine_v8",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_frontguard" : {
+    "name" : "barstow_frontguard",
+    "class" : "Material",
+    "persistentId" : "760a287b-9385-4832-9359-21d080e539e2",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_frontguard_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_frontguard_d.dds",
+        "normalMap" : "vehicles/barstow/barstow_frontguard_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_frontguard_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_frontguard",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_gauges" : {
+    "name" : "barstow_gauges",
+    "class" : "Material",
+    "persistentId" : "e5a0dad6-3d1d-40e6-afca-55cfbddd3794",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_gauges_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "barstow_gauges_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "barstow_gauges_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {},
+      {}
+    ],
+    "mapTo" : "barstow_gauges",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle"
+  },
+  "barstow_gauges_on" : {
+    "name" : "barstow_gauges_on",
+    "class" : "Material",
+    "persistentId" : "66facad9-fe3f-4703-8dc6-9fe9e7cfacbe",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_gauges_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "barstow_gauges_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "barstow_gauges_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_gauges_d.dds",
+        "diffuseColor" : [ 0, 2, 1.299999952316284, 0.5 ],
+        "emissive" : true,
+        "normalMap" : "barstow_gauges_n.dds",
+        "specularMap" : "barstow_gauges_s.dds",
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "mapTo" : "barstow_gauges_on",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle"
+  },
+  "barstow_glass" : {
+    "name" : "barstow_glass",
+    "mapTo" : "barstow_glass",
+    "class" : "Material",
+    "persistentId" : "67b5ef0e-4776-4ade-ab65-8edede62aa69",
+    "Stages": [
+      {
+        "baseColorMap": "vehicles/barstow/barstow_glass_b.color.png",
+        "normalMap": "/vehicles/barstow/barstow_glass_n.dds",
+        "opacityMap": "/vehicles/barstow/barstow_glass_o.data.png",
+        "pixelSpecular": true,
+        "roughnessFactor": 0,
+        "useAnisotropic": true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef": 0,
+    "castShadows": false,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 1852795252,
+    "translucent": true,
+    "translucentBlendOp": "PreMulAlpha",
+    "translucentRecvShadows": true,
+    "version": 1.5
+  },
+  "barstow_glass_dmg" : {
+    "name" : "barstow_glass_dmg",
+    "mapTo" : "barstow_glass_dmg",
+    "class" : "Material",
+    "persistentId" : "86633a3d-cce4-480c-93de-ae2a16e63a2d",
+    "Stages": [
+      {
+        "baseColorMap": "vehicles/barstow/barstow_glass_dmg_b.color.png",
+        "baseColorMap": "vehicles/common/glass_dmg_n.dds",
+        "opacityMap": "/vehicles/barstow/barstow_glass_dmg_o.data.png",
+        "pixelSpecular": true,
+        "roughnessFactor": 0,
+        "useAnisotropic": true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef": 20,
+    "alphaTest": true,
+    "castShadows": false,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 1852795252,
+    "translucent": true,
+    "translucentBlendOp": "PreMulAlpha",
+    "translucentRecvShadows": true,
+    "version": 1.5
+  },
+  "barstow_glass_int" : {
+    "name" : "barstow_glass_int",
+    "class" : "Material",
+    "persistentId" : "16bf3ceb-f133-44b0-aac4-6772ebf12769",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/barstow/barstow_glass_d.dds",
+        "diffuseColor" : [ 0, 0, 0, 1 ],
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "castShadows" : false,
+    "mapTo" : "barstow_glass_int",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true
+  },
+  "barstow_headlight" : {
+    "name" : "barstow_headlight",
+    "class" : "Material",
+    "persistentId" : "22e263b4-2d96-4484-b8ff-7b13b7a8002d",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_headlight"
+  },
+  "barstow_highbeam" : {
+    "name" : "barstow_highbeam",
+    "class" : "Material",
+    "persistentId" : "f69ec3ce-d668-44aa-9c44-01a8b635dc1a",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_highbeam"
+  },
+  "barstow_interior" : {
+    "name" : "barstow_interior",
+    "class" : "Material",
+    "persistentId" : "6a7f3b4b-3d15-44d0-a3de-a7cd9f128e3d",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "barstow_interior_n.dds",
+        "pixelSpecular" : true,
+        "specular" : [ 0.2000000029802322, 0.2000000029802322, 0.2000000029802322, 1 ],
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_interior_d.dds",
+        "diffuseColor" : [ 1, 1, 1, 1.3 ],
+        "normalMap" : "barstow_interior_n.dds",
+        "pixelSpecular" : true,
+        "specular" : [ 0.2000000029802322, 0.2000000029802322, 0.2000000029802322, 1 ],
+        "specularMap" : "barstow_interior_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "cubemap" : "global_cubemap_metalblurred",
+    "mapTo" : "barstow_interior",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle"
+  },
+  "barstow_seats" : {
+    "name" : "barstow_seats",
+    "class" : "Material",
+    "persistentId" : "228daa57-623b-4645-b53a-53f246b6a382",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "barstow_seats_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "barstow_seats_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_seats_d.dds",
+        "diffuseColor" : [ 1, 1, 1, 1.3 ],
+        "normalMap" : "barstow_seats_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "barstow_seats_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "cubemap" : "global_cubemap_metalblurred",
+    "mapTo" : "barstow_seats",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle"
+  },
+  "barstow_lettering" : {
+    "name" : "barstow_lettering",
+    "class" : "Material",
+    "persistentId" : "77922486-887b-4303-be4e-766a642986c4",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/barstow/barstow_lettering_d.dds",
+        "normalMap" : "vehicles/barstow/barstow_lettering_n.dds",
+        "pixelSpecular" : true,
+        "reflectivityMap" : "vehicles/barstow/barstow_lettering_s.dds",
+        "specularMap" : "vehicles/barstow/barstow_lettering_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef" : 70,
+    "alphaTest" : true,
+    "castShadows" : false,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_lettering",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "materialTag2" : "decal",
+    "translucent" : false
+  },
+  "barstow_lights" : {
+    "name" : "barstow_lights",
+    "class" : "Material",
+    "persistentId" : "60aff3b7-173f-48bc-b89d-ef3be3ef7484",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_chrome.dds",
+        "colorPaletteMap" : "vehicles/barstow/barstow_lights_skin_chrome.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {}
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_lights",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_lights_dmg" : {
+    "name" : "barstow_lights_dmg",
+    "class" : "Material",
+    "persistentId" : "84c429c3-cd73-4ef0-9d5b-70ddd209a2f6",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_dmg_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_dmg_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "vehicles/barstow/barstow_lights_dmg_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_chrome.dds",
+        "colorPaletteMap" : "vehicles/barstow/barstow_lights_skin_chrome.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {}
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_lights_dmg",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_lights_on" : {
+    "name" : "barstow_lights_on",
+    "class" : "Material",
+    "persistentId" : "2033b3fe-d13c-4420-8eab-fe32e70a2c22",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_g.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 0.119999997317791 ],
+        "emissive" : true,
+        "glow" : true,
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_chrome.dds",
+        "colorPaletteMap" : "vehicles/barstow/barstow_lights_skin_chrome.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      }
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_lights_on",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_lights_on_intense" : {
+    "name" : "barstow_lights_on_intense",
+    "class" : "Material",
+    "persistentId" : "0b448ba9-8e06-4bf9-bcb7-c60b2b6dfae3",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_d.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 1 ],
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_g.dds",
+        "diffuseColor" : [ 1.5, 1.5, 1.5, 0.2000000029802322 ],
+        "emissive" : true,
+        "glow" : true,
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "vehicles/barstow/barstow_lights_chrome.dds",
+        "colorPaletteMap" : "vehicles/barstow/barstow_lights_skin_chrome.dds",
+        "normalMap" : "vehicles/barstow/barstow_lights_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/barstow/barstow_lights_s.dds",
+        "specularPower" : 128,
+        "useAnisotropic" : true
+      }
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "barstow_lights_on_intense",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true,
+    "translucentBlendOp" : "None"
+  },
+  "barstow_lowbeam" : {
+    "name" : "barstow_lowbeam",
+    "class" : "Material",
+    "persistentId" : "ce0818f8-6686-4b02-98fa-1d3947a68304",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_lowbeam"
+  },
+  "barstow_reverselight" : {
+    "name" : "barstow_reverselight",
+    "class" : "Material",
+    "persistentId" : "9bf3cbc7-37e1-4475-bdd6-864f6f6f5d9b",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_reverselight"
+  },
+  "barstow_signal_L" : {
+    "name" : "barstow_signal_L",
+    "class" : "Material",
+    "persistentId" : "0eef5c1b-25ac-4f38-81f4-5d8391c43b59",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_signal_L"
+  },
+  "barstow_signal_R" : {
+    "name" : "barstow_signal_R",
+    "class" : "Material",
+    "persistentId" : "bbae779b-0d70-472b-8f57-009d87ac92ae",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_signal_R"
+  },
+  "barstow_steer_sport" : {
+    "name" : "barstow_steer_sport",
+    "class" : "Material",
+    "persistentId" : "02c6cd9e-28fd-4200-ba27-331634aecc20",
+    "Stages" : [
+      {
+        "colorMap" : "vehicles/common/null.dds",
+        "normalMap" : "barstow_steer_sport_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "vehicles/common/null.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {
+        "colorMap" : "barstow_steer_sport_d.dds",
+        "normalMap" : "barstow_steer_sport_n.dds",
+        "pixelSpecular" : true,
+        "specularMap" : "barstow_steer_sport_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {}
+    ],
+    "cubemap" : "global_cubemap_metalblurred",
+    "mapTo" : "barstow_steer_sport",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle"
+  },
+  "barstow_stitches" : {
+    "name" : "barstow_stitches",
+    "class" : "Material",
+    "persistentId" : "4c5e49d5-0b28-4063-bdb3-6e64736fe4af",
+    "Stages" : [
+      {
+        "colorMap" : "barstow_stitches_d.dds",
+        "diffuseColor" : [ 1, 1, 1, 0.800000011920929 ],
+        "pixelSpecular" : true,
+        "specular" : [ 0.2000000029802322, 0.2000000029802322, 0.2000000029802322, 1 ],
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef" : 50,
+    "alphaTest" : true,
+    "castShadows" : false,
+    "mapTo" : "barstow_stitches",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucent" : true
+  },
+  "barstow_taillight_L" : {
+    "name" : "barstow_taillight_L",
+    "class" : "Material",
+    "persistentId" : "40163a35-40dc-4071-82d1-6c5f73e73d78",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_taillight_L"
+  },
+  "barstow_taillight_R" : {
+    "name" : "barstow_taillight_R",
+    "class" : "Material",
+    "persistentId" : "f3c5b442-10b3-4ef0-a37b-eaeea2d3ae3b",
+    "Stages" : [ {}, {}, {}, {} ],
+    "mapTo" : "barstow_taillight_R"
+  },
+  "barstow_windshield_dmg" : {
+    "name" : "barstow_windshield_dmg",
+    "mapTo" : "barstow_windshield_dmg",
+    "class" : "Material",
+    "persistentId" : "325f86d9-5e8d-4497-9542-ee3a4bdae975",
+    "Stages": [
+      {
+        "baseColorMap": "vehicles/barstow/barstow_glass_dmg_b.color.png",
+        "normalMap": "vehicles/common/windshield_dmg_n.dds",
+        "opacityMap": "/vehicles/barstow/barstow_glass_dmg_o.data.png",
+        "pixelSpecular": true,
+        "roughnessFactor": 0,
+        "useAnisotropic": true
+      },
+      {},
+      {},
+      {}
+    ],
+    "castShadows": false,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 1852795252,
+    "translucent": true,
+    "translucentBlendOp": "PreMulAlpha",
+    "translucentRecvShadows": true,
+    "version": 1.5
+  }
+}

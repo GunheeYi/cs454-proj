@@ -1,0 +1,119 @@
+{
+"barstow_steer": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Wooden Steering Wheel",
+        "value":250,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",          "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "barstow_steer", "b2l","b2r","b11l",       {"x":-84, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1],
+     ],
+},
+"barstow_steer_sport": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Sport Steering Wheel",
+        "value":350,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",                "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "barstow_steer_sport", "b2l","b2r","b11l",       {"x":-84, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1],
+     ],
+},
+"barstow_steer_01a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Nomi Mod.301 Racing Wheel",
+        "value":310,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_01a", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_02a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Nomi Mod.307 Racing Wheel",
+        "value":330,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_02a", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_02b": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Nomi Mod.307R Racing Wheel",
+        "value":330,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_02b", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_02c": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Nomi Mod.207R Drift Wheel",
+        "value":250,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_02c", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_03a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Arnida Sportivo Racing Wheel",
+        "value":370,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_03a", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_04a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Arnida Corsa Racing Wheel",
+        "value":400,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_04a", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+"barstow_steer_05a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Legno Classico Steering Wheel",
+        "value":440,
+    },
+    "slotType" : "barstow_steer",
+    "props": [
+        ["func",     "mesh",      "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering", "steer_05a", "b2l","b2r","b11l",       {"x":-85, "y":0, "z":180}, {"x":0, "y":0, "z":1}, {"x":0, "y":0, "z":0}, -1000, 1000, 0, 1, {"baseTranslation":{"x":-0.11,"y":0.469,"z":-0.445}}],
+     ],
+},
+}

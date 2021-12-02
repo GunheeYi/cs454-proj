@@ -1,0 +1,128 @@
+{
+"barstow_rollcage": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Roll Cage",
+        "value":5600,
+    },
+    "slotType" : "barstow_rollcage",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_rollcage", ["barstow_rollcage","barstow_roof","barstow_floor","barstow_body"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeWeight":46},
+         {"group":"barstow_rollcage"},
+         ["rc1", 0.0, 0.78, 0.85],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1601000,"beamDamp":50},
+          {"beamDeform":153000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":""},
+          ["rc1","r3rr"],
+          ["rc1","r3ll"],
+          ["rc1","b4rr"],
+          ["rc1","b4ll"],
+
+          ["rc1","r1"],
+          ["rc1","r2"],
+          ["rc1","r3"],
+
+          ["r3rr","b4rr"],
+          ["r3ll","b4ll"],
+
+          ["rc1","b6rr"],
+          ["rc1","b6ll"],
+          ["rc1","q8r"],
+          ["rc1","q8l"],
+
+          ["rc1","b2rr"],
+          ["rc1","b2ll"],
+
+          ["rc1","r1rr"],
+          ["rc1","r1ll"],
+
+          {"optional":true},
+          ["r1rr","r1ll"],
+          ["r3rr","r3ll"],
+
+          ["r3rr","q8r"],
+          ["r3ll","q8l"],
+          ["r3rr","b6rr"],
+          ["r3ll","b6ll"],
+
+          ["r1rr","b2rr"],
+          ["r1ll","b2ll"],
+          ["r1rr","b3rr"],
+          ["r1ll","b3ll"],
+          ["p2rr","b11rrr"],
+          ["p2ll","b11lll"],
+
+          ["b4rr","b11rr"],
+          ["b4ll","b11ll"],
+
+          ["q1r","b2rr"],
+          ["q1l","b2ll"],
+          ["q1r","b11rrr"],
+          ["q1l","b11lll"],
+
+          ["q1r","q8r"],
+          ["q1l","q8l"],
+          {"optional":false},
+
+    ],
+},
+"barstow_subframe_brace_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Subframe Brace",
+        "value":400,
+    },
+    "slotType" : "barstow_subframe_brace_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_subframe_brace_F_subframe", ["barstow_subframe_F"]],
+         ["barstow_subframe_brace_F_body", ["barstow_body"]],
+         ["barstow_subframe_brace_F", ["barstow_subframe_F","barstow_body"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"group":"barstow_subframe_F"},
+
+         {"nodeWeight":9.25},
+         ["s4rrr",-0.55, -1.72, 0.47],
+         ["s4lll", 0.55, -1.72, 0.47],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1601000,"beamDamp":50},
+          {"beamDeform":113000,"beamStrength":183000},
+          {"deformLimitExpansion":1.2},
+          ["s4rrr", "b10rr"],
+          ["s4rrr", "b10r"],
+          ["s4r", "b10rr"],
+          ["s4r", "b10r"],
+
+          ["s4lll", "b10ll"],
+          ["s4lll", "b10l"],
+          ["s4l", "b10ll"],
+          ["s4l", "b10l"],
+          {"optional":false},
+
+    ],
+},
+}

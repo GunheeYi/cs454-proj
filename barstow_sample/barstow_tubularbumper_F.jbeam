@@ -1,0 +1,243 @@
+{
+"barstow_tubularbumper_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Guard",
+        "value":300,
+    },
+    "slotType" : "barstow_bumper_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "fbonFlexMaterials"],
+         ["barstow_frontguard", ["barstow_tubularbumper_F"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--FRONT BUMPER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"barstow_tubularbumper_F"},
+         {"nodeWeight":1.5},
+         ["fbt1rr",-0.87, -2.21, 0.78],
+         ["fbt1r",-0.46, -2.21, 0.87],
+         ["fbt1", 0.0, -2.21, 0.87],
+         ["fbt1l", 0.46, -2.21, 0.87],
+         ["fbt1ll", 0.87, -2.21, 0.78],
+
+         ["fbt2rr",-0.87, -2.21, 0.53],
+         ["fbt2r",-0.46, -2.21, 0.53],
+         ["fbt2", 0.0, -2.21, 0.53],
+         ["fbt2l", 0.46, -2.21, 0.53],
+         ["fbt2ll", 0.87, -2.21, 0.53],
+
+         ["fbt3rr",-0.81, -2.21, 0.43],
+         ["fbt3r",-0.50, -2.21, 0.36],
+         ["fbt3", 0.0, -2.21, 0.36],
+         ["fbt3l", 0.50, -2.21, 0.36],
+         ["fbt3ll", 0.81, -2.21, 0.43],
+
+         {"group":""},
+         //rigidifiers
+         {"collision":false},
+         {"selfCollision":false},
+         ["fbt4r",-0.50, -2.07, 0.38],
+         ["fbt4l", 0.50, -2.07, 0.38],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--FRONT BUMPER--
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":2001000,"beamDamp":100},
+          {"beamDeform":115000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          //main shape
+          ["fbt1rr","fbt1r"],
+          ["fbt1r","fbt1"],
+          ["fbt1l","fbt1"],
+          ["fbt1ll","fbt1l"],
+          ["fbt2rr","fbt2r"],
+          ["fbt2r","fbt2"],
+          ["fbt2l","fbt2"],
+          ["fbt2ll","fbt2l"],
+          ["fbt3rr","fbt3r"],
+          ["fbt3r","fbt3"],
+          ["fbt3l","fbt3"],
+          ["fbt3ll","fbt3l"],
+
+          ["fbt3rr","fbt2rr"],
+          ["fbt3r","fbt2r"],
+          ["fbt3","fbt2"],
+          ["fbt3l","fbt2l"],
+          ["fbt3ll","fbt2ll"],
+
+          ["fbt2rr","fbt1rr"],
+          ["fbt2r","fbt1r"],
+          ["fbt2","fbt1"],
+          ["fbt2l","fbt1l"],
+          ["fbt2ll","fbt1ll"],
+
+          //crossing
+          {"deformLimitExpansion":""},
+          {"beamDeform":62500,"beamStrength":"FLT_MAX"},
+          ["fbt1rr","fbt2r"],
+          ["fbt1r","fbt2rr"],
+          ["fbt1r","fbt2"],
+          ["fbt1","fbt2r"],
+          ["fbt1l","fbt2"],
+          ["fbt1","fbt2l"],
+          ["fbt1ll","fbt2l"],
+          ["fbt1l","fbt2ll"],
+
+          ["fbt2rr","fbt3r"],
+          ["fbt2r","fbt3rr"],
+          ["fbt2r","fbt3"],
+          ["fbt2","fbt3r"],
+          ["fbt2l","fbt3"],
+          ["fbt2","fbt3l"],
+          ["fbt2ll","fbt3l"],
+          ["fbt2l","fbt3ll"],
+
+          //rigids
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":31250,"beamStrength":"FLT_MAX"},
+          ["fbt1rr","fbt1"],
+          ["fbt1r","fbt1l"],
+          ["fbt1","fbt1ll"],
+          ["fbt2rr","fbt2"],
+          ["fbt2r","fbt2l"],
+          ["fbt2","fbt2ll"],
+          ["fbt3rr","fbt3"],
+          ["fbt3r","fbt3l"],
+          ["fbt3","fbt3ll"],
+
+          ["fbt3rr","fbt1rr"],
+          ["fbt3r","fbt1r"],
+          ["fbt3","fbt1"],
+          ["fbt3l","fbt1l"],
+          ["fbt3ll","fbt1ll"],
+
+          //rigidifier
+          {"beamDeform":22750,"beamStrength":"FLT_MAX"},
+          ["fbt1rr","fbt4r"],
+          ["fbt1r","fbt4r"],
+          ["fbt1","fbt4r"],
+          ["fbt1l","fbt4r"],
+          ["fbt2rr","fbt4r"],
+          ["fbt2r","fbt4r"],
+          ["fbt2","fbt4r"],
+          ["fbt2l","fbt4r"],
+          ["fbt3rr","fbt4r"],
+          ["fbt3r","fbt4r"],
+          ["fbt3","fbt4r"],
+          ["fbt3l","fbt4r"],
+
+          ["fbt1ll","fbt4l"],
+          ["fbt1l","fbt4l"],
+          ["fbt1","fbt4l"],
+          ["fbt1r","fbt4l"],
+          ["fbt2ll","fbt4l"],
+          ["fbt2l","fbt4l"],
+          ["fbt2","fbt4l"],
+          ["fbt2r","fbt4l"],
+          ["fbt3ll","fbt4l"],
+          ["fbt3l","fbt4l"],
+          ["fbt3","fbt4l"],
+          ["fbt3r","fbt4l"],
+
+          //attach
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":27000,"beamStrength":81000},
+          {"breakGroup":"tubularbumper_F_R"},
+          ["fbt4r","s5r"],
+          ["fbt4r","s5rr"],
+          ["fbt4r","s5rrr"],
+
+          ["fbt3r","s5r"],
+          ["fbt3r","s5rr"],
+          ["fbt3r","s5rrr"],
+
+          ["fbt2r","s5r"],
+          ["fbt2r","s5rr"],
+          ["fbt2r","s5rrr"],
+
+          ["fbt3r","s4rr"],
+          ["fbt3r","s4rrr"],
+          ["fbt3r","s4r"],
+
+          ["fbt2","s5r"],
+          ["fbt3","s5r"],
+
+          ["fbt3rr","s5rr"],
+
+          ["fbt1rr","s5rrr"],
+          ["fbt1r","s5rrr"],
+
+          {"breakGroup":"tubularbumper_F_L"},
+          ["fbt4l","s5l"],
+          ["fbt4l","s5ll"],
+          ["fbt4l","s5lll"],
+
+          ["fbt3l","s5l"],
+          ["fbt3l","s5ll"],
+          ["fbt3l","s5lll"],
+
+          ["fbt2l","s5l"],
+          ["fbt2l","s5ll"],
+          ["fbt2l","s5lll"],
+
+          ["fbt3l","s4ll"],
+          ["fbt3l","s4lll"],
+          ["fbt3l","s4l"],
+
+          ["fbt2","s5l"],
+          ["fbt3","s5l"],
+
+          ["fbt3ll","s5ll"],
+
+          ["fbt1ll","s5lll"],
+          ["fbt1l","s5lll"],
+
+          //damper beams
+          {"beamSpring":0,"beamDamp":300},
+          {"beamDeform":12750,"beamStrength":42500},
+          {"breakGroupType":1},
+          {"breakGroup":"tubularbumper_F_R"},
+          ["fbt1rr","s4rrr"],
+          ["fbt1r","s4rr"],
+          ["fbt1","s4r"],
+
+          {"breakGroup":"tubularbumper_F_L"},
+          ["fbt1ll","s4lll"],
+          ["fbt1l","s4ll"],
+          ["fbt1","s4l"],
+          {"breakGroupType":0},
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"barstow_tubularbumper_F"},
+            {"dragCoef":5},
+            ["fbt1rr","fbt2rr","fbt2r"],
+            ["fbt1rr","fbt2r","fbt1r"],
+            ["fbt1r","fbt2r","fbt2"],
+            ["fbt1r","fbt2","fbt1"],
+
+            ["fbt1ll","fbt2l","fbt2ll"],
+            ["fbt1l","fbt2l","fbt1ll"],
+            ["fbt1l","fbt2","fbt2l"],
+            ["fbt1","fbt2","fbt1l"],
+
+            ["fbt2rr","fbt3rr","fbt3r"],
+            ["fbt2rr","fbt3r","fbt2r"],
+            ["fbt2r","fbt3r","fbt3"],
+            ["fbt2r","fbt3","fbt2"],
+
+            ["fbt2ll","fbt3l","fbt3ll"],
+            ["fbt2l","fbt3l","fbt2ll"],
+            ["fbt2l","fbt3","fbt3l"],
+            ["fbt2","fbt3","fbt2l"],
+    ],
+},
+}

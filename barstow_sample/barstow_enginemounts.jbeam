@@ -1,0 +1,211 @@
+{
+"barstow_enginemounts": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stock Engine Mounts",
+        "value":50,
+    },
+    "slotType" : "barstow_enginemounts",
+    "beams": [
+          ["id1:", "id2:"],
+
+          //engine soft mount
+          {"optional":true},
+          {"deformLimitExpansion":""},
+          {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0, "beamShortBound":0},
+          {"beamSpring":47175, "beamDamp":925},
+          {"beamLimitSpring":2001000, "beamLimitDamp":500},
+          {"beamDeform":20000, "beamStrength":17000},
+          {"dampCutoffHz":500},
+          {"boundZone":0.02},
+
+          {"breakGroup":"enginemount_R"},
+          ["em1r", "s3rrr"],
+          ["em1r", "s3rr"],
+          ["em1r", "s4rr"],
+          ["em1r", "s4rrr"],
+          ["em1r", "fx2r"],
+          ["em1r", "s3ll"],
+          ["em1r", "s4l"],
+
+          {"breakGroup":"enginemount_L"},
+          ["em1l", "s3lll"],
+          ["em1l", "s3ll"],
+          ["em1l", "s4ll"],
+          ["em1l", "s4lll"],
+          ["em1l", "fx2l"],
+          ["em1l", "s3rr"],
+          ["em1l", "s4r"],
+
+          //transmission mount
+          {"beamSpring":140000, "beamDamp":2700},
+          {"beamLimitSpring":1001000, "beamLimitDamp":500},
+          {"beamDeform":20000, "beamStrength":160000},
+          {"boundZone":0.03},
+
+          {"breakGroup":"transmissionmount"},
+          ["tra1","s1"],
+          ["tra1","s1rr"],
+          ["tra1","s1ll"],
+          ["tra1","b12l"],
+          ["tra1","b12r"],
+          {"boundZone":""},
+          {"breakGroup":""},
+
+          //damper
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamDeform":15000, "beamStrength":60000},
+          {"beamSpring":47175, "beamDamp":925},
+          ["e3l", "s3rr"],
+          ["e4l", "s4rr"],
+          ["e4r", "s4ll"],
+          ["e3r", "s3ll"],
+          ["e3r", "s4rr"],
+          ["e3l", "s4ll"],
+          ["e4l", "s3ll"],
+          ["e4r", "s3rr"],
+          {"dampCutoffHz":""},
+          {"optional":false},
+
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_enginemounts_heavy": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Heavy Duty Engine Mounts",
+        "value":220,
+    },
+    "slotType" : "barstow_enginemounts",
+    "beams": [
+          ["id1:", "id2:"],
+
+          //engine soft mounts
+          {"breakGroupType":0},
+          {"optional":true},
+          {"deformLimitExpansion":""},
+          {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0, "beamShortBound":0},
+          {"beamSpring":601000,"beamDamp":1000},
+          {"beamLimitSpring":1001000,"beamLimitDamp":500},
+          {"beamDeform":40000,"beamStrength":110000},
+          {"dampCutoffHz":500},
+          {"boundZone":0.02},
+
+          {"breakGroup":"enginemount_R"},
+          ["em1r", "s3rrr"],
+          ["em1r", "s3rr"],
+          ["em1r", "s4rr"],
+          ["em1r", "s4rrr"],
+          ["em1r", "fx2r"],
+          ["em1r", "s3ll"],
+          ["em1r", "s4l"],
+
+          {"breakGroup":"enginemount_L"},
+          ["em1l", "s3lll"],
+          ["em1l", "s3ll"],
+          ["em1l", "s4ll"],
+          ["em1l", "s4lll"],
+          ["em1l", "fx2l"],
+          ["em1l", "s3rr"],
+          ["em1l", "s4r"],
+
+          //transmission mount
+          {"beamSpring":140000, "beamDamp":2700},
+          {"beamLimitSpring":1001000, "beamLimitDamp":500},
+          {"beamDeform":40000, "beamStrength":190000},
+          {"boundZone":0.03},
+
+          {"breakGroup":"transmissionmount"},
+          ["tra1","s1"],
+          ["tra1","s1rr"],
+          ["tra1","s1ll"],
+          ["tra1","b12l"],
+          ["tra1","b12r"],
+          {"boundZone":""},
+          {"breakGroup":""},
+
+          //damper
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamDeform":15000, "beamStrength":60000},
+          {"beamSpring":47175, "beamDamp":925},
+          ["e3l", "s3rr"],
+          ["e4l", "s4rr"],
+          ["e4r", "s4ll"],
+          ["e3r", "s3ll"],
+          ["e3r", "s4rr"],
+          ["e3l", "s4ll"],
+          ["e4l", "s3ll"],
+          ["e4r", "s3rr"],
+          {"dampCutoffHz":""},
+          {"optional":false},
+
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_enginemounts_ultra": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Ultra Heavy Duty Engine Mounts",
+        "value":500,
+    },
+    "slotType" : "barstow_enginemounts",
+    "beams": [
+          ["id1:", "id2:"],
+
+          //engine solid mounts
+          {"optional":true},
+          {"deformLimitExpansion":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":2601000,"beamDamp":200},
+          {"beamDeform":60000,"beamStrength":120000},
+          {"dampCutoffHz":500},
+
+          {"breakGroup":"enginemount_R"},
+          ["em1r", "s3rrr"],
+          ["em1r", "s3rr"],
+          ["em1r", "s4rr"],
+          ["em1r", "s4rrr"],
+          ["em1r", "fx2r"],
+          ["em1r", "s3ll"],
+          ["em1r", "s4l"],
+
+          {"breakGroup":"enginemount_L"},
+          ["em1l", "s3lll"],
+          ["em1l", "s3ll"],
+          ["em1l", "s4ll"],
+          ["em1l", "s4lll"],
+          ["em1l", "fx2l"],
+          ["em1l", "s3rr"],
+          ["em1l", "s4r"],
+
+          //transmission mount
+          {"beamSpring":3001000,"beamDamp":200},
+          {"beamDeform":70000, "beamStrength":250000},
+
+          {"breakGroup":"transmissionmount"},
+          ["tra1","s1"],
+          ["tra1","s1rr"],
+          ["tra1","s1ll"],
+          ["tra1","b12l"],
+          ["tra1","b12r"],
+          {"boundZone":""},
+          {"breakGroup":""},
+
+          //damper
+          {"beamDeform":15000, "beamStrength":60000},
+          {"beamSpring":47175, "beamDamp":925},
+          ["e3l", "s3rr"],
+          ["e4l", "s4rr"],
+          ["e4r", "s4ll"],
+          ["e3r", "s3ll"],
+          ["e3r", "s4rr"],
+          ["e3l", "s4ll"],
+          ["e4l", "s3ll"],
+          ["e4r", "s3rr"],
+          {"dampCutoffHz":""},
+          {"optional":false},
+
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+}

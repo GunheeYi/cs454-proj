@@ -1,0 +1,168 @@
+{
+"barstow_roofbars": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Roof Bars",
+        "value":150,
+    },
+    "slotType" : "barstow_roof_accessory",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["roofbar_rail",            ["barstow_roof", "roofbar_F"],[],{"pos":{"x":0.0,   "y":0.1, "z":1.39}, "rot":{"x":1,  "y":0, "z":0}, "scale":{"x":1.40,"y":1.0,"z":1.00}}],
+         ["roofbar_mount_alt_R",     ["barstow_roof", "roofbar_F"],[],{"pos":{"x":-0.16, "y":0.1, "z":1.395},  "rot":{"x":1,  "y":0, "z":0}, "scale":{"x":1.0,"y":1.0,"z":1.05}}],
+         ["roofbar_mount_alt_L",     ["barstow_roof", "roofbar_F"],[],{"pos":{"x":0.16,  "y":0.1, "z":1.395},  "rot":{"x":1,  "y":0, "z":0}, "scale":{"x":1.0,"y":1.0,"z":1.05}}],
+         ["roofbar_rail",            ["barstow_roof", "roofbar_R"],[],{"pos":{"x":0.0,   "y":1.0, "z":1.39}, "rot":{"x":-8, "y":0, "z":0}, "scale":{"x":1.40,"y":1.0,"z":1.0}}],
+         ["roofbar_mount_alt_R",     ["barstow_roof", "roofbar_R"],[],{"pos":{"x":-0.17, "y":1.0, "z":1.39},  "rot":{"x":-8, "y":0, "z":0}, "scale":{"x":1.0,"y":1.0,"z":1.40}}],
+         ["roofbar_mount_alt_L",     ["barstow_roof", "roofbar_R"],[],{"pos":{"x":0.17,  "y":1.0, "z":1.39},  "rot":{"x":-8, "y":0, "z":0}, "scale":{"x":1.0,"y":1.0,"z":1.40}}],
+    ],
+    "slots": [
+        ["type", "default", "description"],
+        ["roofbars_load","","Load", {"nodeOffset":{"x":0.0, "y":0.55, "z":1.39}}],
+    ],
+    "rails": {
+        "roofbar_F":{"links:":["rfb1rr", "rfb1ll"], "broken:":[], "looped":false, "capped":true},
+        "roofbar_R":{"links:":["rfb2rr", "rfb2ll"], "broken:":[], "looped":false, "capped":true},
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["rfb1r", "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb1",  "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb1l", "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+
+        ["rfb2r", "roofbar_R", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb2",  "roofbar_R", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb2l", "roofbar_R", true, true, 0.0, 2001000, 500000, 500000],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"selfCollision":true},
+         {"nodeMaterial":"|NM_METAL"},
+
+         {"nodeWeight":1.2},
+         {"group":"roofbar_F"},
+         ["rfb1rr",-0.74, 0.1, 1.39, {"nodeWeight":1.7}],
+         ["rfb1r", -0.37, 0.1, 1.39],
+         ["rfb1",    0.0, 0.1, 1.39],
+         ["rfb1l",  0.37, 0.1, 1.39],
+         ["rfb1ll", 0.74, 0.1, 1.39, {"nodeWeight":1.7}],
+
+         {"group":"roofbar_R"},
+         ["rfb2rr",-0.74, 1.0, 1.39, {"nodeWeight":1.7}],
+         ["rfb2r", -0.37, 1.0, 1.39],
+         ["rfb2",    0.0, 1.0, 1.39],
+         ["rfb2l",  0.37, 1.0, 1.39],
+         ["rfb2ll", 0.74, 1.0, 1.39, {"nodeWeight":1.7}],
+         {"nodeOffset":""},
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //roof bars
+          {"beamSpring":901000,"beamDamp":150},
+          {"beamDeform":13000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["rfb2ll", "rfb2l"],
+          ["rfb2l", "rfb2"],
+          ["rfb2", "rfb2r"],
+          ["rfb2r", "rfb2rr"],
+
+          ["rfb1ll", "rfb1l"],
+          ["rfb1l", "rfb1"],
+          ["rfb1", "rfb1r"],
+          ["rfb1r", "rfb1rr"],
+
+          //attach
+          {"beamSpring":701000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          ["rfb1rr", "r2rr"],
+          ["rfb1rr", "r1rr"],
+          ["rfb1rr", "r2"],
+          ["rfb1rr", "r1"],
+
+          ["rfb1ll", "r2ll"],
+          ["rfb1ll", "r1ll"],
+          ["rfb1ll", "r2"],
+          ["rfb1ll", "r1"],
+
+          ["rfb2ll", "r3ll"],
+          ["rfb2ll", "r4ll"],
+          ["rfb2ll", "r3"],
+          ["rfb2ll", "r4"],
+
+          ["rfb2rr", "r3rr"],
+          ["rfb2rr", "r4rr"],
+          ["rfb2rr", "r3"],
+          ["rfb2rr", "r4"],
+
+          //pillar anti invert
+          {"beamSpring":401000,"beamDamp":50},
+          {"beamDeform":3000,"beamStrength":"FLT_MAX"},
+
+          ["rfb1rr", "p5r"],
+          ["rfb1rr", "p2r"],
+
+          ["rfb1ll", "p5l"],
+          ["rfb1ll", "p2l"],
+
+          ["rfb2rr", "p6r"],
+          ["rfb2rr", "q2r"],
+
+          ["rfb2ll", "p6l"],
+          ["rfb2ll", "q2l"],
+
+          //damper
+          {"beamSpring":0,"beamDamp":350},
+          ["r4", "rfb1l"],
+          ["r4", "rfb1"],
+          ["r4", "rfb1r"],
+          ["r1", "rfb1l"],
+          ["r1", "rfb1"],
+          ["r1", "rfb1r"],
+
+          ["r4", "rfb2"],
+          ["r4", "rfb2r"],
+          ["r4", "rfb2l"],
+          ["r1", "rfb2l"],
+          ["r1", "rfb2"],
+          ["r1", "rfb2r"],
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"roofbar"},
+            {"dragCoef":0},
+            ["rfb1rr", "r2rr", "r1rr"],
+            ["rfb1ll", "r1ll", "r2ll"],
+            ["rfb1ll", "r2ll", "rfb1l"],
+            ["rfb1l", "r2", "rfb1"],
+            ["rfb1l", "r2ll", "r2"],
+            ["rfb1", "r2", "rfb1r"],
+            ["rfb1r", "r2rr", "rfb1rr"],
+            ["rfb1r", "r2", "r2rr"],
+            ["rfb1rr", "r1rr", "rfb1r"],
+            ["rfb1r", "r1", "rfb1"],
+            ["rfb1r", "r1rr", "r1"],
+            ["rfb1", "r1", "rfb1l"],
+            ["rfb1l", "r1ll", "rfb1ll"],
+            ["rfb1l", "r1", "r1ll"],
+
+            ["rfb2ll", "r3ll", "r4ll"],
+            ["rfb2rr", "r4rr", "r3rr"],
+            ["rfb2l", "r3ll", "rfb2ll"],
+            ["rfb2", "r3", "rfb2l"],
+            ["rfb2l", "r3", "r3ll"],
+            ["rfb2r", "r3", "rfb2"],
+            ["rfb2r", "rfb2rr", "r3rr"],
+            ["r3rr", "r3", "rfb2r"],
+            ["rfb2l", "rfb2ll", "r4ll"],
+            ["rfb2l", "r4", "rfb2"],
+            ["rfb2l", "r4ll", "r4"],
+            ["rfb2", "r4", "rfb2r"],
+            ["rfb2r", "r4rr", "rfb2rr"],
+            ["rfb2r", "r4", "r4rr"],
+    ],
+},
+}

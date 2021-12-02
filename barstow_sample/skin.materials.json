@@ -1,0 +1,128 @@
+{
+  "barstow.skin.nodeoline" : {
+    "name" : "barstow.skin.nodeoline",
+    "mapTo" : "barstow.skin.nodeoline",
+    "class" : "Material",
+    "persistentId" : "4ce73ff5-4d0c-45ed-9d6f-cb4a6ab606c2",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "baseColorMap": "/vehicles/barstow/barstow_main_b.color.png",
+        "metallicMap": "/vehicles/barstow/barstow_main_m.data.png",
+        "metallicFactor": 1,
+        "roughnessFactor": 1,
+        "normalMap": "vehicles/barstow/barstow_main_n.normal.png",
+        "roughnessMap": "/vehicles/barstow/barstow_main_r.data.png",
+        "useAnisotropic": true
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "useAnisotropic": true,
+        "diffuseMapUseUV": 1,
+        "colorPaletteMapUseUV": 1,
+        "instanceDiffuse": true,
+        "clearCoatFactor": 1,
+        "roughnessFactor": 1,
+        "clearCoatRoughnessFactor":1,
+        "metallicMap": "/vehicles/barstow/barstow_skin_nodeoline_m.data.png",
+        "metallicMapUseUV": 1,
+        "metallicFactor": 1,
+        "clearCoatMap": "/vehicles/barstow/barstow_chrome_cc.data.png",
+        "normalMap": "/vehicles/barstow/barstow_main_n.normal.png",
+        "opacityMap": "/vehicles/barstow/barstow_chrome_c.data.png",
+        "baseColorMap": "vehicles/barstow/barstow_skin_nodeoline.dds",
+        "colorPaletteMap": "vehicles/barstow/barstow_skin_nodeoline_palette_uv1.color.png"
+      },
+      {},
+      {}
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 0,
+    "version": 1.5
+  },
+  "barstow.skin.old" : {
+    "name" : "barstow.skin.old",
+    "mapTo" : "barstow.skin.old",
+    "class" : "Material",
+    "persistentId" : "3b98c531-33f7-49a3-9ea8-9dfaa9d43b8d",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "baseColorMap": "/vehicles/barstow/barstow_main_b.color.png",
+        "metallicMap": "/vehicles/barstow/barstow_main_m.data.png",
+        "metallicFactor": 1,
+        "roughnessFactor": 1,
+        "normalMap": "vehicles/barstow/barstow_main_n.normal.png",
+        "roughnessMap": "/vehicles/barstow/barstow_main_r.data.png",
+        "useAnisotropic": true
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "useAnisotropic": true,
+        "diffuseMapUseUV": 1,
+        "colorPaletteMapUseUV": 1,
+        "instanceDiffuse": true,
+        "clearCoatFactor": 1,
+        "clearCoatRoughnessFactor":1,
+        "metallicMap": "/vehicles/barstow/barstow_skin_old_m.data.png",
+        "metallicMapUseUV": 1,
+        "metallicFactor": 1,
+        "clearCoatMap": "/vehicles/barstow/barstow_main_cc.data.png",
+        "normalMap": "/vehicles/barstow/barstow_main_n.normal.png",
+        "opacityMap": "/vehicles/barstow/barstow_main_c.data.png",
+        "baseColorMap": "vehicles/barstow/barstow_skin_old.color.png",
+        "colorPaletteMap": "vehicles/barstow/barstow_skin_old_palette_uv1.color.png"
+      },
+      {},
+      {}
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 0,
+    "version": 1.5
+  },
+  "barstow.skin.stripes" : {
+    "name" : "barstow.skin.stripes",
+    "mapTo" : "barstow.skin.stripes",
+    "class" : "Material",
+    "persistentId" : "6b895ef9-d53b-4780-9290-54cd86c87216",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "baseColorMap": "/vehicles/barstow/barstow_main_b.color.png",
+        "metallicMap": "/vehicles/barstow/barstow_main_m.data.png",
+        "metallicFactor": 1,
+        "roughnessFactor": 1,
+        "normalMap": "vehicles/barstow/barstow_n.dds",
+        "roughnessMap": "/vehicles/barstow/barstow_main_r.data.png",
+        "useAnisotropic": true
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/barstow/barstow_main_ao.data.png",
+        "useAnisotropic": true,
+        "colorPaletteMapUseUV": 1,
+        "instanceDiffuse": true,
+        "clearCoatFactor": 1,
+        "clearCoatRoughnessFactor":1,
+        "metallicFactor": 1,
+        "clearCoatMap": "/vehicles/barstow/barstow_chrome_cc.data.png",
+        "normalMap": "/vehicles/barstow/barstow_n.dds",
+        "opacityMap": "/vehicles/barstow/barstow_chrome_c.data.png",
+        "colorPaletteMap": "vehicles/barstow/barstow_skin_stripes_palette_uv1.color.png"
+      },
+      {},
+      {}
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 0,
+    "version": 1.5
+  }
+}

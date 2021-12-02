@@ -1,0 +1,102 @@
+{
+"barstow_wheeliebar": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Wheelie Bar",
+        "value":1700,
+    },
+    "slotType" : "barstow_wheeliebar",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_wheeliebar", ["barstow_wheeliebar"]],
+         ["barstow_innerbumper_R", ["barstow_body"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //wheeliebar
+         {"frictionCoef":1},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":3},
+         {"group":"barstow_wheeliebar"},
+         ["wb1l",0.34,2.42, 0.37],
+         ["wb1r",-0.34,2.42, 0.37],
+         {"frictionCoef":0.1},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         ["wb2l",0.34,3.43, 0.41],
+         ["wb2r",-0.34,3.43, 0.41],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":4151000,"beamDamp":120},
+          {"beamDeform":67830,"beamStrength":"FLT_MAX"},
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"deformLimitExpansion":1.1},
+          ["wb1l","wb1r"],
+          ["wb1l","wb2l"],
+          ["wb1l","wb2r"],
+
+          ["wb1r","wb2l"],
+          ["wb1r","wb2r"],
+
+          ["wb2l","wb2r"],
+
+          {"beamSpring":3601000,"beamDamp":120},
+          //wheelie bar attachment to body
+          {"beamDeform":67830,"beamStrength":297500},
+          {"deformLimitExpansion":""},
+          //lower
+          ["wb1l","b8ll"],
+          ["wb1l","b8rr"],
+          ["wb1l","b9ll"],
+          ["wb1l","b9rr"],
+
+          ["wb1r","b8ll"],
+          ["wb1r","b8rr"],
+          ["wb1r","b9ll"],
+          ["wb1r","b9rr"],
+
+          ["wb2l","b8ll"],
+          ["wb2l","b8rr"],
+          ["wb2l","b9ll"],
+          ["wb2l","b9rr"],
+
+          ["wb2r","b8ll"],
+          ["wb2r","b8rr"],
+
+          ["wb1l","b9"],
+          ["wb1r","b9"],
+          ["wb1l","b8"],
+          ["wb1r","b8"],
+          ["wb2l","b9"],
+          ["wb2r","b9"],
+
+          //upper
+          {"beamSpring":2001000,"beamDamp":120},
+          ["wb1l","tb4l"],
+          ["wb1l","tb4r"],
+
+          ["wb1r","tb4l"],
+          ["wb1r","tb4r"],
+
+          ["wb1l","tb4"],
+          ["wb1r","tb4"],
+
+          ["wb2l","tb4l"],
+          ["wb2l","tb4r"],
+
+          ["wb2r","tb4l"],
+          ["wb2r","tb4r"],
+          {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+          {"breakGroup":""},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":5},
+            ["wb1l","wb2l","wb2r"],
+            ["wb1l","wb2r","wb1r"],
+    ],
+},
+}

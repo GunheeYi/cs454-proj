@@ -1,0 +1,76 @@
+{
+"barstow_lettering_hood": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Hood Lettering",
+        "value":20,
+    },
+    "slotType" : "barstow_lettering_hood",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_lettering_gavril_hood", ["barstow_hood","barstow_hood_cut","barstow_hood_scoop","barstow_hood_cowl"]],
+    ],
+},
+"barstow_lettering": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Lettering",
+        "value":20,
+    },
+    "slotType" : "barstow_lettering",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_lettering_barstow", ["barstow_trunk"]],
+    ],
+},
+"barstow_lettering_v8": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"V8 Lettering",
+        "value":70,
+    },
+    "slotType" : "barstow_lettering",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_lettering_barstow", ["barstow_trunk"]],
+         ["barstow_lettering_v8_grille", ["barstow_grille"]],
+         ["barstow_lettering_v8", ["barstow_trunk"]],
+    ],
+},
+"barstow_lettering_tracksport": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"TrackSport Lettering",
+        "value":280,
+    },
+    "slotType" : "barstow_lettering",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_lettering_tracksport_fender_L", ["barstow_fender_L"]],
+         ["barstow_lettering_tracksport_fender_R", ["barstow_fender_R"]],
+         ["barstow_lettering_ts_grille", ["barstow_grille"]],
+         ["barstow_lettering_ts", ["barstow_trunk"]],
+         ["barstow_lettering_barstow", ["barstow_trunk"]],
+         ["barstow_lettering_v8_grille", ["barstow_grille"]],
+         ["barstow_lettering_v8", ["barstow_trunk"]],
+    ],
+},
+"barstow_lettering_roadsport": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"RoadSport Lettering",
+        "value":360,
+    },
+    "slotType" : "barstow_lettering",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_lettering_roadsport_fender_L", ["barstow_fender_L"]],
+         ["barstow_lettering_roadsport_fender_R", ["barstow_fender_R"]],
+         ["barstow_lettering_rs_grille", ["barstow_grille"]],
+         ["barstow_lettering_rs", ["barstow_trunk"]],
+         ["barstow_lettering_barstow", ["barstow_trunk"]],
+         ["barstow_lettering_v8_grille", ["barstow_grille"]],
+         ["barstow_lettering_v8", ["barstow_trunk"]],
+    ],
+},
+}

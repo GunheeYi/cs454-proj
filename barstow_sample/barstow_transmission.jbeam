@@ -1,0 +1,541 @@
+{
+"barstow_transmission_4M": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4-Speed Manual Transmission",
+        "value":350,
+    },
+    "slotType" : "barstow_transmission",
+    "slots": [
+        ["type", "default","description"],
+        ["barstow_flywheel","barstow_flywheel","Flywheel", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-2.71, 0, 2.67, 1.84, 1.33, 1.0],
+        "friction": 1.27,
+        "dynamicFriction": 0.00127,
+        "torqueLossCoef": 0.0155,
+        "gearboxNode:":["tra1"],
+
+        "gearWhineCoefsInput":  [0.64, 0.00, 0.33, 0.27, 0.27, 0.17],
+        "gearWhineCoefsOutput": [0.00, 0.00, 0.23, 0.23, 0.23, 0.18],
+        "gearWhineInputEvent": "event:>Vehicle>Transmission>helical_01>twine_in_tuned",
+        "gearWhineOutputEvent": "event:>Vehicle>Transmission>helical_01>twine_out_tuned",
+
+        "forwardInputPitchCoef":0.95
+        "forwardOutputPitchCoef":0.95
+        //"reverseInputPitchCoef":0.7
+        //"reverseOutputPitchCoef":0.7
+
+        //"gearWhineInputPitchCoefSmoothing":50
+        //"gearWhineOutputPitchCoefSmoothing":50
+        //"gearWhineInputVolumeCoefSmoothing":10
+        //"gearWhineOutputVolumeCoefSmoothing":10
+
+        //"gearWhineFixedCoefOutput": 0.7
+        //"gearWhineFixedCoefInput": 0.4
+    },
+    "vehicleController": {
+        "shiftDownRPMOffsetCoef":1.18,
+        "calculateOptimalLoadShiftPoints": true,
+        "lowShiftDownRPM":[0,0,0,1200,1200,1200],
+        "lowShiftUpRPM":[0,0,2400,2200,2000],
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["barstow_transmission", ["barstow_engine","barstow_transmission"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //manual transmission
+        ["gear_M"      , "barstow_shifter_M"    , "b2r","b2l","b3r", {"x":90, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        //clutch
+        ["clutch"     ,"barstow_clutchpedal", "b2l","b2r","b11l",  {"x":0, "y":0, "z":180} , {"x":-22, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--4 Speed Manual--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":"barstow_transmission"},
+         {"nodeWeight":32},
+         ["tra1", 0.0, -0.36, 0.29],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":20001000,"beamDamp":500},
+          {"beamDeform":212500,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_transmission_5M": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5-Speed Sport Manual Transmission",
+        "value":750,
+    },
+    "slotType" : "barstow_transmission",
+    "slots": [
+        ["type", "default","description"],
+        ["barstow_flywheel","barstow_flywheel","Flywheel", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-2.71, 0, 2.67, 1.84, 1.33, 1.0, 0.81],
+        "friction": 1.38,
+        "dynamicFriction": 0.0014,
+        "torqueLossCoef": 0.0155,
+        "gearboxNode:":["tra1"],
+        "gearWhineCoefsInput":  [0.64, 0.00, 0.38, 0.33, 0.30, 0.22, 0.30],
+        "gearWhineCoefsOutput": [0.00, 0.00, 0.50, 0.45, 0.40, 0.25, 0.32],
+        "gearWhineInputEvent": "event:>Vehicle>Transmission>helical_01>twine_in_race",
+        "gearWhineOutputEvent": "event:>Vehicle>Transmission>helical_01>twine_out_race",
+
+        "forwardInputPitchCoef":0.95
+        "forwardOutputPitchCoef":0.95
+        //"reverseInputPitchCoef":0.7
+        //"reverseOutputPitchCoef":0.7
+
+        //"gearWhineInputPitchCoefSmoothing":50
+        //"gearWhineOutputPitchCoefSmoothing":50
+        //"gearWhineInputVolumeCoefSmoothing":10
+        //"gearWhineOutputVolumeCoefSmoothing":10
+
+        //"gearWhineFixedCoefOutput": 0.7
+        //"gearWhineFixedCoefInput": 0.4
+    },
+    "vehicleController": {
+        "shiftDownRPMOffsetCoef":1.2,
+        "calculateOptimalLoadShiftPoints": true,
+        "lowShiftDownRPM":[0,0,0,1300,1300,1300,1300],
+        "lowShiftUpRPM":[0,0,2400,2200,2100,2000],
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["barstow_transmission", ["barstow_engine","barstow_transmission"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //manual transmission
+        ["gear_M"      , "barstow_shifter_M"    , "b2r","b2l","b3r", {"x":90, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        //clutch
+        ["clutch"     ,"barstow_clutchpedal", "b2l","b2r","b11l",  {"x":0, "y":0, "z":180} , {"x":-22, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--5 Speed Manual--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":"barstow_transmission"},
+         {"nodeWeight":34},
+         ["tra1", 0.0, -0.36, 0.29],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":20001000,"beamDamp":500},
+          {"beamDeform":212500,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_transmission_6M_race": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Race 6-Speed Manual Transmission",
+        "value":3450,
+    },
+    "slotType" : "barstow_transmission",
+    "slots": [
+        ["type", "default","description"],
+        ["barstow_flywheel","barstow_flywheel_race","Flywheel", {"coreSlot":true}],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$gear_R", "range", ":1", "Transmission", 2.90, 0.5, 4, "Reverse Gear Ratio", "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_1", "range", ":1", "Transmission", 2.66, 0.5, 4, "1st Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_2", "range", ":1", "Transmission", 1.78, 0.5, 4, "2nd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_3", "range", ":1", "Transmission", 1.30, 0.5, 4, "3rd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_4", "range", ":1", "Transmission", 1.00, 0.5, 4, "4th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_5", "range", ":1", "Transmission", 0.74, 0.5, 4, "5th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_6", "range", ":1", "Transmission", 0.55, 0.5, 4, "6th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":["$=-$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6"],
+        "friction": 1.91,
+        "dynamicFriction": 0.00191,
+        "torqueLossCoef": 0.0135,
+        "gearboxNode:":["tra1"],
+
+        "gearWhineCoefsInput":  [0.64, 0.00, 0.70, 0.65, 0.60, 0.50, 0.60, 0.60],
+        "gearWhineCoefsOutput": [0.00, 0.00, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60],
+        "gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_race",
+        "gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_race",
+
+        "forwardInputPitchCoef":0.95
+        "forwardOutputPitchCoef":0.95
+        //"reverseInputPitchCoef":0.7
+        //"reverseOutputPitchCoef":0.7
+
+        //"gearWhineInputPitchCoefSmoothing":50
+        //"gearWhineOutputPitchCoefSmoothing":50
+        //"gearWhineInputVolumeCoefSmoothing":10
+        //"gearWhineOutputVolumeCoefSmoothing":10
+
+        //"gearWhineFixedCoefOutput": 0.7
+        //"gearWhineFixedCoefInput": 0.4
+    },
+    "clutch": {
+        "clutchFreePlay":0.35,
+    },
+    "vehicleController": {
+        "transmissionShiftDelay":0.15,
+        "calculateOptimalLoadShiftPoints": true,
+        //"aggressionSmoothingDown":0.05
+        "aggressionHoldOffThrottleDelay":3,
+        //"lowShiftDownRPM":[0,0,0,1400,1400,1400,1400,1400]
+        //"lowShiftUpRPM":[0,0,2500,2300,2200,2100,2000]
+        "lowShiftDownRPM":[0,0,0,1300,1400,1400,1400,1400],
+        "lowShiftUpRPM":[0,0,2800,2500,2400,2400,2400],
+        //"wheelSlipUpThreshold":100,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["barstow_transmission", ["barstow_engine","barstow_transmission"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //manual transmission
+        ["gear_M"      , "barstow_shifter_M"    , "b2r","b2l","b3r", {"x":90, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        //clutch
+        ["clutch"     ,"barstow_clutchpedal", "b2l","b2r","b11l",  {"x":0, "y":0, "z":180} , {"x":-22, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--6 Speed Manual--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":"barstow_transmission"},
+         {"nodeWeight":37},
+         ["tra1", 0.0, -0.36, 0.29],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":20001000,"beamDamp":500},
+          {"beamDeform":212500,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_transmission_3A": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3-Speed Automatic Transmission",
+        "value":1050,
+    },
+    "slotType" : "barstow_transmission",
+    "slots": [
+        ["type", "default", "description"],
+        ["barstow_converter","barstow_converter","Torque Converter", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["torqueConverter", "torqueConverter", "mainEngine", 1],
+        ["automaticGearbox", "gearbox", "torqueConverter", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-2.18, 0, 2.46, 1.46, 1.00],
+        "parkLockTorque":2500,
+        "oneWayViscousCoef":35,
+        "friction": 1.52,
+        "dynamicFriction": 0.00153,
+        "torqueLossCoef": 0.017,
+        "gearboxNode:":["tra1"],
+    },
+    "vehicleController": {
+        "automaticModes":"PRND21",
+        "useSmartAggressionCalculation":false,
+        "calculateOptimalLoadShiftPoints": true,
+        "transmissionGearChangeDelay":2,
+        "gearboxDecisionSmoothingUp":0.5,
+        "gearboxDecisionSmoothingDown":0.5,
+        "lowShiftDownRPM":1100,
+        "lowShiftUpRPM":[0,0,1700,1500],
+        "wheelSlipUpThreshold":99999,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["barstow_transmission", ["barstow_engine","barstow_transmission"]],
+        ["barstow_shifterbase_A", ["barstow_body","barstow_floor"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //automatic transmission
+        ["gear_A"      , "barstow_shifter_A"    , "b2r","b2l","b3r", {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--3 Speed Automatic--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":"barstow_transmission"},
+         {"nodeWeight":40},
+         ["tra1", 0.0, -0.36, 0.29],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":20001000,"beamDamp":500},
+          {"beamDeform":212500,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_transmission_4A_drag": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4-Speed Automatic Drag Transmission",
+        "value":6600,
+    },
+    "slotType" : "barstow_transmission",
+    "slots": [
+        ["type", "default", "description"],
+        ["barstow_converter_drag","barstow_converter_drag_med","Torque Converter", {"coreSlot":true}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["transbrake", {}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["torqueConverter", "torqueConverter", "mainEngine", 1],
+        ["automaticGearbox", "gearbox", "torqueConverter", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-2.29, 0, 3.06, 1.62, 1.00, 0.7],
+        "parkLockTorque":5000,
+        "oneWayViscousCoef":35,
+        "friction": 3.05,
+        "dynamicFriction": 0.00306,
+        "torqueLossCoef": 0.017,
+        "shiftEfficiency":0.75,
+        "gearChangeTime": 0.05,
+        "gearboxNode:":["tra1"],
+    },
+    "vehicleController": {
+        "automaticModes":"PRND21",
+        "useSmartAggressionCalculation":false,
+        "transmissionGearChangeDelay":0.75,
+        "gearboxDecisionSmoothingDown":2,
+        "gearboxDecisionSmoothingUp":2,
+        "lowShiftDownRPM":1500,
+        "lowShiftUpRPM":3500,
+        "highShiftDownRPM":3000,
+        //effectively disabled
+        "wheelSlipUpThreshold":99999,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["barstow_transmission", ["barstow_engine","barstow_transmission"]],
+        ["barstow_shifterbase_A", ["barstow_body","barstow_floor"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //automatic transmission
+        ["gear_A"      , "barstow_shifter_A"    , "b2r","b2l","b3r", {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--4 Speed Automatic--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"group":"barstow_transmission"},
+         {"nodeWeight":40},
+         ["tra1", 0.0, -0.36, 0.29],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":20001000,"beamDamp":500},
+          {"beamDeform":212500,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"barstow_converter": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Torque Converter",
+        "value":90,
+    },
+    "slotType" : "barstow_converter",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.30,
+        "converterStiffness":8,
+        "couplingAVRatio":0.9,
+        "stallTorqueRatio":1.8,
+        "additionalEngineInertia":0.2,
+    },
+},
+"barstow_converter_hi": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"High Stall Torque Converter",
+        "value":175,
+    },
+    "slotType" : "barstow_converter",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.28,
+        "converterStiffness":8,
+        "couplingAVRatio":0.88,
+        "stallTorqueRatio":2,
+        "additionalEngineInertia":0.18,
+    },
+},
+"barstow_converter_drag_lo": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Low Stall Converter",
+        "value":600,
+    },
+    "slotType" : "barstow_converter_drag",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.322,
+        "converterStiffness":12,
+        "couplingAVRatio":0.9,
+        "stallTorqueRatio":1.8,
+        "additionalEngineInertia":0.24,
+    },
+},
+"barstow_converter_drag_med": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Medium Stall Converter",
+        "value":600,
+    },
+    "slotType" : "barstow_converter_drag",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.315,
+        "converterStiffness":12,
+        "couplingAVRatio":0.9,
+        "stallTorqueRatio":1.8,
+        "additionalEngineInertia":0.22,
+    },
+},
+"barstow_converter_drag_hi": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"High Stall Converter",
+        "value":600,
+    },
+    "slotType" : "barstow_converter_drag",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.305,
+        "converterStiffness":12,
+        "couplingAVRatio":0.9,
+        "stallTorqueRatio":1.8,
+        "additionalEngineInertia":0.20,
+    },
+},
+"barstow_flywheel": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Flywheel",
+        "value":150,
+    },
+    "slotType" : "barstow_flywheel",
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.15,
+        "clutchMass":6,
+    },
+},
+"barstow_flywheel_race": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Ultra Light Flywheel",
+        "value":900,
+    },
+    "slotType" : "barstow_flywheel",
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.03,
+        "clutchMass":4,
+    },
+},
+"barstow_flywheel_light": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Lightened Flywheel",
+        "value":600,
+    },
+    "slotType" : "barstow_flywheel",
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.09,
+        "clutchMass":5,
+    },
+},
+}

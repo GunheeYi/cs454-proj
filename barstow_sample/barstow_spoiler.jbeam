@@ -1,0 +1,160 @@
+{
+"barstow_spoiler": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Spoiler",
+        "value":350,
+    },
+    "slotType" : "barstow_spoiler",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["barstow_spoiler", ["barstow_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"group":"barstow_spoiler"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.4},
+         ["sp2rr", -0.72, 2.20, 0.98],
+         ["sp2r", -0.27, 2.21, 1.005],
+         ["sp2l", 0.27, 2.21, 1.005],
+         ["sp2ll", 0.72, 2.20, 0.98],
+
+         ["sp3rr", -0.72, 2.385, 1.01],
+         ["sp3r", -0.36, 2.388, 1.025],
+         ["sp3", 0.0, 2.39, 1.03],
+         ["sp3l", 0.36, 2.388, 1.025],
+         ["sp3ll", 0.72, 2.385, 1.01],
+
+         {"collision":true},
+         {"selfCollision":true},
+         ["sp1", 0.0, 2.3, 0.85],
+         {"group":""},
+
+
+    ],
+     "beams": [
+          ["id1:", "id2:"],
+           {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //wing
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":4250,"beamStrength":25500},
+          {"deformLimitExpansion":1.1},
+          ["sp2ll", "sp2l"],
+          ["sp2ll", "sp3ll"],
+          ["sp2ll", "sp3l"],
+          ["sp3ll", "sp3l"],
+          ["sp3ll", "sp2l"],
+
+          ["sp2l", "sp3l"],
+          ["sp2l", "sp3"],
+
+          ["sp3l", "sp3"],
+
+          ["sp2rr", "sp2r"],
+          ["sp2rr", "sp3rr"],
+          ["sp2rr", "sp3r"],
+          ["sp3rr", "sp3r"],
+          ["sp3rr", "sp2r"],
+
+          ["sp2r", "sp3r"],
+          ["sp2r", "sp3"],
+
+          ["sp3r", "sp3"],
+
+          ["sp2l", "sp2r"],
+
+          //wing rigids
+          {"deformLimitExpansion":""},
+          {"beamSpring":201000,"beamDamp":30},
+          ["sp3ll", "sp3"],
+          ["sp3ll", "sp3r"],
+          ["sp3ll", "sp2r"],
+          ["sp3ll", "sp2rr"],
+          ["sp2ll", "sp2r"],
+          ["sp2ll", "sp3"],
+          ["sp2ll", "sp3r"],
+          ["sp2ll", "sp3rr"],
+
+          ["sp3rr", "sp3"],
+          ["sp3rr", "sp3l"],
+          ["sp3rr", "sp2l"],
+          ["sp2rr", "sp2l"],
+          ["sp2rr", "sp3"],
+          ["sp2rr", "sp3l"],
+
+          //rigidifier
+          {"beamDeform":4250,"beamStrength":34000},
+          {"beamSpring":601000,"beamDamp":30},
+          ["sp3", "sp1"],
+
+          ["sp2l", "sp1"],
+          ["sp3l", "sp1"],
+          ["sp3ll", "sp1"],
+          ["sp2ll", "sp1"],
+
+          ["sp2r", "sp1"],
+          ["sp3r", "sp1"],
+          ["sp3rr", "sp1"],
+          ["sp2rr", "sp1"],
+
+          //attach
+          {"beamSpring":401000,"beamDamp":60},
+          {"beamDeform":2001.75,"beamStrength":10412.5},
+          {"breakGroup":"spoiler_attach_L"},
+          ["sp3l", "t2l"],
+          ["sp2l", "t1l"],
+          ["sp2l", "t2l"],
+          ["sp3l", "t1l"],
+
+          ["sp3ll", "t2ll"],
+          ["sp2ll", "t1ll"],
+          ["sp2ll", "t2ll"],
+          ["sp3ll", "t1ll"],
+          ["sp3l", "t2ll"],
+          ["sp2l", "t1ll"],
+          ["sp3l", "t2r"],
+          ["sp2l", "t1r"],
+
+          ["sp3r", "t5", {"beamStrength":17000,"breakGroupType":1}],
+          ["sp2r", "t5", {"beamStrength":17000,"breakGroupType":1}],
+
+          //attachment right
+          {"breakGroup":"spoiler_attach_R"},
+          ["sp3r", "t2r"],
+          ["sp2r", "t1r"],
+          ["sp2r", "t2r"],
+          ["sp3r", "t1r"],
+
+          ["sp3rr", "t2rr"],
+          ["sp2rr", "t1rr"],
+          ["sp2rr", "t2rr"],
+          ["sp3rr", "t1rr"],
+          ["sp3r", "t2rr"],
+          ["sp2r", "t1rr"],
+          ["sp3r", "t2l"],
+          ["sp2r", "t1l"],
+
+          ["sp3l", "t5", {"beamStrength":17000,"breakGroupType":1}],
+          ["sp2l", "t5", {"beamStrength":17000,"breakGroupType":1}],
+          {"breakGroup":""},
+    ],
+
+    "triangles": [
+        ["id1:","id2:","id3:"],
+        {"dragCoef":5},
+        {"groundModel":"plastic"},
+        ["sp2ll","sp3ll","sp3l", {"liftCoef":50}],
+        ["sp2ll","sp3l","sp2l", {"liftCoef":50}],
+        ["sp2l","sp3l","sp3", {"liftCoef":50}],
+        ["sp2l","sp3","sp2r", {"liftCoef":50}],
+        ["sp2r","sp3","sp3r", {"liftCoef":50}],
+        ["sp2r","sp3r","sp2rr", {"liftCoef":50}],
+        ["sp2rr","sp3r","sp3rr", {"liftCoef":50}],
+    ],
+},
+}

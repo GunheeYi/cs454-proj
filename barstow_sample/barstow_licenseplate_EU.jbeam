@@ -1,0 +1,15 @@
+{
+"barstow_licenseplate_F_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front EU License Plate",
+        "value":0,
+    },
+    "slotType" : "barstow_licenseplate_F",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["barstow_bumper_F"],[],{"pos":{"x":0.0, "y":-2.208, "z":0.415}, "rot":{"x":10, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+}
