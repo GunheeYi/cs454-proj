@@ -1,22 +1,23 @@
-DIR_VEHICLES = "."
-NAME_VEHICLE = "barstow"
+from config import BNG_HOME, BNG_USER
+DIR_VEHICLES = BNG_USER + "/0.23/mods/unpacked"
+NAME_VEHICLE = "barstow_forEdit"
 DIR_CONFIG = DIR_VEHICLES + "/" + NAME_VEHICLE + "/vehicles/" + NAME_VEHICLE + "/"
 
 def applyParameters(parameters):
 
-    # parameters = {
-    #     'maxRPM': 6000,
-    #     'engineInertia': 0.3,
-    #     'engineBrakeTorque': 60,
-    #     'engineNodeWeightMul': 1.2,
-    #     'brakeMulF': 2200,
-    #     'brakeMulR': 1000,
-    #     'bodyNodeWeightMul': 1.2,
-    #     'wheelRadius': 0.4
-    # }
+    parameters = {
+        'maxRPM': 5000,
+        'engineInertia': 0.3,
+        'engineBrakeTorque': 60,
+        'engineNodeWeightMul': 1.2,
+        'brakeMulF': 2200,
+        'brakeMulR': 1000,
+        'bodyNodeWeightMul': 1.2,
+        'wheelRadius': 0.4
+    }
 
     JBEAM_ENGINE = DIR_CONFIG+'barstow_engine_v8.jbeam'
-    JBEAM_BRAKES = DIR_CONFIG+'barstow_brakes_.jbeam'
+    JBEAM_BRAKES = DIR_CONFIG+'barstow_brakes.jbeam'
     JBEAM_BODY = DIR_CONFIG+'barstow_body.jbeam'
     JBEAM_FTIRE = DIR_CONFIG+'tires_F_14x6_biasply.jbeam'
     JBEAM_RTIRE = DIR_CONFIG+'tires_R_14x6_biasply.jbeam'
@@ -73,3 +74,5 @@ def applyParameters(parameters):
         t[103] = '        {{"radius":{}}},\n'.format(parameters['wheelRadius'])
     with open(JBEAM_RTIRE, 'w') as f:
         for l in t: f.write(l)
+
+applyParameters(0)

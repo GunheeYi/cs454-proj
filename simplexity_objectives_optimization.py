@@ -26,7 +26,7 @@ class BeamNGProblem(FloatProblem):
         Vars = solution.variables
         print(Vars)
 
-        X = map(lambda _: float('%.3f' % _), Vars[:self.number_of_variables])
+        X = list(map(lambda _: float('%.3f' % _), Vars[:self.number_of_variables]))
 
         change_ratio_max = 0
         changed_parameter_count = 0
