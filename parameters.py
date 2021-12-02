@@ -5,16 +5,16 @@ DIR_CONFIG = DIR_VEHICLES + "/" + NAME_VEHICLE + "/vehicles/" + NAME_VEHICLE + "
 
 def applyParameters(parameters):
 
-    parameters = {
-        'maxRPM': 5000,
-        'engineInertia': 0.3,
-        'engineBrakeTorque': 60,
-        'engineNodeWeightMul': 1.2,
-        'brakeMulF': 2200,
-        'brakeMulR': 1000,
-        'bodyNodeWeightMul': 1.2,
-        'wheelRadius': 0.4
-    }
+    # parameters = {
+    #     'maxRPM': 5000,
+    #     'engineInertia': 0.3,
+    #     'engineBrakeTorque': 60,
+    #     'engineNodeWeightMul': 1.2,
+    #     'brakeMulF': 2200,
+    #     'brakeMulR': 1000,
+    #     'bodyNodeWeightMul': 1.2,
+    #     'wheelRadius': 0.4
+    # }
 
     JBEAM_ENGINE = DIR_CONFIG+'barstow_engine_v8.jbeam'
     JBEAM_BRAKES = DIR_CONFIG+'barstow_brakes.jbeam'
@@ -24,7 +24,7 @@ def applyParameters(parameters):
 
     with open(JBEAM_ENGINE, 'r') as f:
         t = f.readlines()
-        t[45] = '        "maxRPM":{},\n'.format(parameters['maxRPM'])
+        t[45] = '        "maxRPM":{},\n'.format(int(parameters['maxRPM']))
         t[47] = '        "inertia":{},\n'.format(parameters['engineInertia'])
         t[49] = '        "engineBrakeTorque":{},\n'.format(parameters['engineBrakeTorque'])
         t[196] = "         {{\"nodeWeight\":{}}},\n".format(29.5*parameters['engineNodeWeightMul'])
@@ -75,4 +75,4 @@ def applyParameters(parameters):
     with open(JBEAM_RTIRE, 'w') as f:
         for l in t: f.write(l)
 
-applyParameters(0)
+# applyParameters(0)

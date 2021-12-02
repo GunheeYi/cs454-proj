@@ -2,6 +2,7 @@
 from config import BNG_HOME, BNG_USER
 from beamngpy import BeamNGpy, Scenario, Vehicle, Road
 from beamngpy.sensors import Electrics, Damage, State
+import math
 import time
 import json
 
@@ -59,18 +60,22 @@ def run():
             #print(scenario._get_vehicles_list())
             ## Throttle until obstacle is detected.
         ego_vehicle.control(throttle=0.8)
-        while True:
+        no_problem = True
+        for i in range(10000000):
             #time.sleep(.01)
+            if i==20 and ego_vehicle.state['vel'][0] < 0.1:
+                no_problem = False
+                break
             sensors = bng.poll_sensors(ego_vehicle)
             bng.poll_sensors(parked_vehicle)
             ego_vehicle.update_vehicle()
             parked_vehicle.update_vehicle()
-            if(dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])<19):
+            if(dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])<18):
                 ## Obstacle is detected
                 print("brake!")
                 break
             #if i % 10 == 0:
-            print(ego_vehicle.state['vel'])
+            #print(ego_vehicle.state['vel'])
                 #print(sensors)
             
             if ego_vehicle.state['vel'][0] >= 13.9:
@@ -83,7 +88,11 @@ def run():
                 ego_vehicle.control(throttle=0.1)
             else:
                 ego_vehicle.control(throttle=0.8)
-            
+        if not no_problem:
+            result['speed'] = 0.0
+            result['intensity']=math.inf
+            result['distance']=math.inf
+            return result
         
         ## Input breaks
         ego_vehicle.control(throttle=0,brake=1.0)

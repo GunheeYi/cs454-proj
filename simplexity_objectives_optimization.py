@@ -59,16 +59,11 @@ class BeamNGProblem(FloatProblem):
 
         print(result)
 
-        if "distance" in result.keys():
-            distance = result["distance"]
-        else:
-            distance = 0.0
+        distance = result["distance"]
+        speed = result["speed"]
 
-        if "speed" in result.keys():
-            speed = result["speed"]
+        if result["speed"] != 0:
             distance = 0.0
-        else:
-            speed = 0.0
 
         print("distance: %f" % distance)
         print("speed: %f" % speed)
