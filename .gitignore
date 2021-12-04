@@ -1,3 +1,4 @@
 *.DS_Store
 __pycache__/*
 barstow_sample/*
+config.py

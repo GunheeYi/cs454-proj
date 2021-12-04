@@ -1,2 +1,0 @@
-BNG_HOME = "C:/2021_2/SBSE/BeamNG.drive-0.23.5.1.12888"
-BNG_USER = "C:/2021_2/SBSE/BeamNG"
