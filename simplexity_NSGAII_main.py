@@ -5,6 +5,7 @@ from jmetal.algorithm.multiobjective import NSGAII
 from jmetal.operator import SBXCrossover, PolynomialMutation
 from jmetal.util.solution import print_function_values_to_file, print_variables_to_file
 from jmetal.util.termination_criterion import StoppingByEvaluations
+from jmetal.util.evaluator import MultiprocessEvaluator
 
 if __name__ == '__main__':
     problem = BeamNGProblem()
@@ -15,7 +16,8 @@ if __name__ == '__main__':
         offspring_population_size=50,
         mutation=PolynomialMutation(probability=1.0 / problem.number_of_variables, distribution_index=20),
         crossover=SBXCrossover(probability=1, distribution_index=20),
-        termination_criterion=StoppingByEvaluations(max_evaluations=5000)
+        termination_criterion=StoppingByEvaluations(max_evaluations=5000),
+        population_evaluator = MultiprocessEvaluator(processes=2)
     )
 
     algorithm.run()
