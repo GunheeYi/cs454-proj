@@ -1,0 +1,41 @@
+{
+"etk800_licenseplate_F_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front EU License Plate",
+        "value":0},
+    "slotType" : "etk800_licenseplate_F",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11-r1", ["etk800_bumper_F"],[],{"pos":{"x":0.0, "y":-2.291, "z":0.49}, "rot":{"x":-2.5, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}]]},
+"etk800_licenseplate_F_alt_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front EU License Plate",
+        "value":0},
+    "slotType" : "etk800_licenseplate_F_alt",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11-r2", ["etk800_bumper_F"],[],{"pos":{"x":0.0, "y":-2.2835, "z":0.495}, "rot":{"x":-2.5, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}]]},
+"etk800_licenseplate_R_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0},
+    "slotType" : "etk800_licenseplate_R",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["etk800_bumper_R"],[],{"pos":{"x":0.0, "y":2.37, "z":0.56}, "rot":{"x":5, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]]},
+"etk800_licenseplate_R_alt_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0},
+    "slotType" : "etk800_licenseplate_R_alt",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["etk800_bumper_R"],[],{"pos":{"x":0.0, "y":2.37, "z":0.41}, "rot":{"x":-6, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]]}}

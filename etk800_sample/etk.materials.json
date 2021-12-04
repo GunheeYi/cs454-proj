@@ -1,0 +1,50 @@
+{
+  "etk_engine_i6" : {
+    "name" : "etk_engine_i6",
+    "class" : "Material",
+    "persistentId" : "59f91e20-c33c-43ad-86a6-97a5235de301",
+    "Stages" : [
+      {
+        "colorMap" : "etk_engine_i6_d.dds",
+        "normalMap" : "etk_engine_i6_n.dds",
+        "specularMap" : "etk_engine_i6_s.dds",
+        "specularPower" : 32,
+        "useAnisotropic" : true
+      },
+      {},
+      {},
+      {}
+    ],
+    "alphaRef" : 0,
+    "dynamicCubemap" : true,
+    "mapTo" : "etk_engine_i6",
+    "materialTag0" : "beamng",
+    "materialTag1" : "vehicle",
+    "translucentBlendOp" : "None"
+  },
+  "etk800_seats": {
+    "name": "etk800_seats",
+    "mapTo": "etk800_seats",
+    "class": "Material",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/common/etk/etk800_seats_ao.data.png",
+        "baseColorMap": "/vehicles/common/etk/etk800_seats_black_b.color.png",
+        "clearCoatRoughnessFactor": 0,
+        "normalMap": "vehicles/common/etk/etk800_seats_n.dds",
+        "opacityFactor": 0,
+        "pixelSpecular": true,
+        "roughnessMap": "/vehicles/common/etk/etk800_seats_r.data.png",
+        "useAnisotropic": true
+      },
+      {},
+      {},
+      {}
+    ],
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "order_simset": 0,
+    "version": 1.5
+  }
+}

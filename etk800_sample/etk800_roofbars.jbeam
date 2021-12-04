@@ -1,0 +1,150 @@
+{
+"etk800_roofbars": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Roof Bars",
+        "value":150},
+    "slotType" : "etk800_roof_accessory",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["roofbar_rail",    ["etk800_body", "roofbar_F"],[],{"pos":{"x":0.0,   "y":0.3, "z":1.46}}],
+         ["roofbar_mount_R", ["etk800_body", "roofbar_F"],[],{"pos":{"x":0.02,  "y":0.3, "z":1.46}}],
+         ["roofbar_mount_L", ["etk800_body", "roofbar_F"],[],{"pos":{"x":-0.02, "y":0.3, "z":1.46}}],
+         ["roofbar_rail",    ["etk800_body", "roofbar_R"],[],{"pos":{"x":0.0,   "y":1.2, "z":1.46}}],
+         ["roofbar_mount_R", ["etk800_body", "roofbar_R"],[],{"pos":{"x":0.04,  "y":1.2, "z":1.46}, "scale":{"x":1.0,"y":1.0,"z":1.08}}],
+         ["roofbar_mount_L", ["etk800_body", "roofbar_R"],[],{"pos":{"x":-0.04, "y":1.2, "z":1.46}, "scale":{"x":1.0,"y":1.0,"z":1.08}}]],
+    "slots": [
+        ["type", "default", "description"],
+        ["roofbars_load","","Load", {"nodeOffset":{"x":0.0, "y":0.75, "z":1.48}}]],
+    "rails": {
+        "roofbar_F":{"links:":["rfb1rr", "rfb1ll"], "broken:":[], "looped":false, "capped":true},
+        "roofbar_R":{"links:":["rfb2rr", "rfb2ll"], "broken:":[], "looped":false, "capped":true}},
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["rfb1r", "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb1",  "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb1l", "roofbar_F", true, true, 0.0, 2001000, 500000, 500000],
+
+        ["rfb2r", "roofbar_R", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb2",  "roofbar_R", true, true, 0.0, 2001000, 500000, 500000],
+        ["rfb2l", "roofbar_R", true, true, 0.0, 2001000, 500000, 500000]],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"selfCollision":true},
+         {"nodeMaterial":"|NM_METAL"},
+
+         {"nodeWeight":1.2},
+         {"group":"roofbar_F"},
+         ["rfb1rr",-0.53, 0.3, 1.455, {"nodeWeight":1.7}],
+         ["rfb1r", -0.27, 0.3, 1.455],
+         ["rfb1",   0.0, 0.3, 1.455],
+         ["rfb1l",  0.27, 0.3, 1.455],
+         ["rfb1ll", 0.53, 0.3, 1.455, {"nodeWeight":1.7}],
+
+         {"group":"roofbar_R"},
+         ["rfb2rr",-0.53, 1.2, 1.455, {"nodeWeight":1.7}],
+         ["rfb2r", -0.27, 1.2, 1.455],
+         ["rfb2",   0.0, 1.2, 1.455],
+         ["rfb2l",  0.27, 1.2, 1.455],
+         ["rfb2ll", 0.53, 1.2, 1.455, {"nodeWeight":1.7}],
+         {"nodeOffset":""},
+         {"group":""}],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          
+          {"beamSpring":1201000,"beamDamp":150},
+          {"beamDeform":13000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["rfb2ll", "rfb2l"],
+          ["rfb2l", "rfb2"],
+          ["rfb2", "rfb2r"],
+          ["rfb2r", "rfb2rr"],
+
+          ["rfb1ll", "rfb1l"],
+          ["rfb1l", "rfb1"],
+          ["rfb1", "rfb1r"],
+          ["rfb1r", "rfb1rr"],
+
+          
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          ["rfb1rr", "rf2r"],
+          ["rfb1rr", "rf1r"],
+          ["rfb1rr", "rf2", {"beamSpring":201000}],
+          ["rfb1rr", "rf1", {"beamSpring":301000}],
+
+          ["rfb2rr", "rf4r"],
+          ["rfb2rr", "rf5r"],
+          ["rfb2rr", "rf4", {"beamSpring":301000}],
+          ["rfb2rr", "rf5", {"beamSpring":301000}],
+
+          ["rfb1ll", "rf2l"],
+          ["rfb1ll", "rf1l"],
+          ["rfb1ll", "rf2", {"beamSpring":201000}],
+          ["rfb1ll", "rf1", {"beamSpring":301000}],
+
+          ["rfb2ll", "rf4l"],
+          ["rfb2ll", "rf5l"],
+          ["rfb2ll", "rf4", {"beamSpring":301000}],
+          ["rfb2ll", "rf5", {"beamSpring":301000}],
+
+          
+          {"beamSpring":401000,"beamDamp":50},
+          {"beamDeform":3000,"beamStrength":"FLT_MAX"},
+          ["rfb2rr", "p10r"],
+          ["rfb2rr", "p9r"],
+
+          ["rfb1rr", "p8r"],
+          ["rfb1rr", "p7r"],
+
+          ["rfb1ll", "p8l"],
+          ["rfb1ll", "p7l"],
+
+          ["rfb2ll", "p10l"],
+          ["rfb2ll", "p9l"],
+
+          
+          {"beamSpring":0,"beamDamp":350},
+          ["rf7", "rfb1l"],
+          ["rf7", "rfb1"],
+          ["rf7", "rfb1r"],
+          ["rf7", "rfb2"],
+          ["rf7", "rfb2r"],
+          ["rf7", "rfb2l"]],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"roofbar"},
+            {"dragCoef":0},
+            ["rfb1rr", "rf2r", "rf1r"],
+            ["rfb2rr", "rf5r", "rf4r"],
+            ["rfb1ll", "rf2l", "rfb1l"],
+            ["rfb1l", "rf2", "rfb1"],
+            ["rfb1l", "rf2l", "rf2"],
+            ["rfb1", "rf2", "rfb1r"],
+            ["rfb1r", "rf2r", "rfb1rr"],
+            ["rfb1r", "rf2", "rf2r"],
+            ["rfb1rr", "rf1r", "rfb1r"],
+            ["rfb1r", "rf1", "rfb1"],
+            ["rfb1r", "rf1r", "rf1"],
+            ["rfb1", "rf1", "rfb1l"],
+            ["rfb1l", "rf1l", "rfb1ll"],
+            ["rfb1l", "rf1", "rf1l"],
+
+            ["rfb2ll", "rf4l", "rf5l"],
+            ["rfb1ll", "rf1l", "rf2l"],
+            ["rfb2l", "rf4l", "rfb2ll"],
+            ["rfb2", "rf4", "rfb2l"],
+            ["rfb2l", "rf4", "rf4l"],
+            ["rfb2r", "rf4", "rfb2"],
+            ["rfb2r", "rfb2rr", "rf4r"],
+            ["rf4r", "rf4", "rfb2r"],
+            ["rfb2l", "rfb2ll", "rf5l"],
+            ["rfb2l", "rf5", "rfb2"],
+            ["rfb2l", "rf5l", "rf5"],
+            ["rfb2", "rf5", "rfb2r"],
+            ["rfb2r", "rf5r", "rfb2rr"],
+            ["rfb2r", "rf5", "rf5r"]]}}

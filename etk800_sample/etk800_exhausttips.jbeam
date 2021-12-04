@@ -1,0 +1,32 @@
+{
+"etk800_exhausttips_i4": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Single Exhaust Tip",
+        "value":80},
+    "slotType" : "etk800_exhausttips_i4",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["etk800_exhausttip_R_a", ["etk800_exhaust_R"]]]},
+"etk800_exhausttips_i6": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Single Exhaust Tips",
+        "value":150},
+    "slotType" : "etk800_exhausttips_i6",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["etk800_exhausttip_R_a", ["etk800_exhaust_R"]],
+         ["etk800_exhausttip_L_a", ["etk800_exhaust_L"]]]},
+"etk800_exhausttips_i6_tt": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Double Exhaust Tips",
+        "value":350},
+    "slotType" : "etk800_exhausttips_i6",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["etk800_exhausttip_R_a", ["etk800_exhaust_R"]],
+         ["etk800_exhausttip_R_b", ["etk800_exhaust_R"]],
+         ["etk800_exhausttip_L_a", ["etk800_exhaust_L"]],
+         ["etk800_exhausttip_L_b", ["etk800_exhaust_L"]]]}}
