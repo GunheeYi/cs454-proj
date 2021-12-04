@@ -11,6 +11,8 @@ def dist(tup1,tup2):
     ax,ay=tup1[0],tup1[1]
     bx,by=tup2[0],tup2[1]
     return ((ax-bx)**2+(ay-by)**2)**0.5
+
+
 def run():
     
     with BeamNGpy('localhost', 64256, home=BNG_HOME, user=BNG_USER) as bng:
@@ -156,5 +158,3 @@ def run():
             #bng.despawn_vehicle(ego_vehicle)
             #ego_vehicle = Vehicle('ego', model='barstow_forEdit', licence='ego', color="black")
             #bng.spawn_vehicle(ego_vehicle, pos = ego_position, rot = None, rot_quat=direction_of_the_road)
-        
-run()
