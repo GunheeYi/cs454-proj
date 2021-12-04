@@ -13,9 +13,8 @@ def dist(tup1,tup2):
     return ((ax-bx)**2+(ay-by)**2)**0.5
 
 
-def run():
-    
-    with BeamNGpy('localhost', 64256, home=BNG_HOME, user=BNG_USER) as bng:
+def run(port, car_name):
+    with BeamNGpy('localhost', port, home=BNG_HOME, user=BNG_USER) as bng:
         scenario = Scenario('tig', 'test_scenario')
         ground_level = -28.0
         road_nodes = [
@@ -30,7 +29,7 @@ def run():
 
         # Vehicle to move
         ego_position = (-70.0, -2.0, ground_level)
-        ego_vehicle = Vehicle('ego', model='barstow_forEdit', licence='ego', partConfig="vehicles/barstow_forEdit/291m.pc")
+        ego_vehicle = Vehicle('ego', model=car_name, licence='ego', partConfig=f"vehicles/{car_name}/etk856tc_M.pc")
         
 
         electrics = Electrics()
@@ -158,3 +157,6 @@ def run():
             #bng.despawn_vehicle(ego_vehicle)
             #ego_vehicle = Vehicle('ego', model='barstow_forEdit', licence='ego', color="black")
             #bng.spawn_vehicle(ego_vehicle, pos = ego_position, rot = None, rot_quat=direction_of_the_road)
+
+if __name__ == "__main__":
+    run(64256, 'car0')

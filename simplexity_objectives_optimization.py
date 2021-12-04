@@ -6,25 +6,27 @@ from jmetal.core.solution import FloatSolution
 
 class BeamNGProblem(FloatProblem):
 
-    def __init__(self):
+    def __init__(self, q):
         super(BeamNGProblem, self).__init__()
-        self.number_of_variables = 8
+        self.number_of_variables = 7
         self.number_of_objectives = 3
         self.number_of_constraints = 0
 
         self.obj_direction = [self.MINIMIZE, self.MINIMIZE, self.MINIMIZE]
         self.obj_labels = ['f(1)', 'f(2)', 'f(3)']
 
-        self.original = [5000, 0.2, 50, 1, 2000, 950, 1, 0.325]
-        self.lower_bound = [4000, 0.1, 40, 0.8, 1600, 800, 0.8, 0.28]
-        self.upper_bound = [6000, 0.3, 60, 1.2, 2400, 1100, 1.2, 0.35]
+        self.original = [7000, 0.14, 44, 1, 3000, 1550,  0.325]
+        self.lower_bound = [6000, 0.1, 30, 0.8, 2500, 1250, 0.3]
+        self.upper_bound = [8000, 0.18, 60, 1.2, 3500, 1850, 0.35]
+        self._q = q
 
         FloatSolution.lower_bound = self.lower_bound
         FloatSolution.upper_bound = self.upper_bound
 
     def evaluate(self, solution: FloatSolution) -> FloatSolution:
+        port, car_name = self._q.get()
+        print(port, car_name)
         Vars = solution.variables
-        print(Vars)
 
         X = list(map(lambda _: float('%.3f' % _), Vars[:self.number_of_variables]))
 
@@ -42,20 +44,19 @@ class BeamNGProblem(FloatProblem):
             else: changed_parameter_count += 1
 
             change_ratio_max = max(change_ratio_max, change_ratio)
-
+        
         parameters = dict()
         parameters['maxRPM'] = X[0]
         parameters['engineInertia'] = X[1]
         parameters['engineBrakeTorque'] = X[2]
-        parameters['engineNodeWeightMul'] = X[3]
+        parameters['nodeWeightMul'] = X[3]
         parameters['brakeMulF'] = X[4]
         parameters['brakeMulR'] = X[5]
-        parameters['bodyNodeWeightMul'] = X[6]
-        parameters['wheelRadius'] = X[7]
+        parameters['wheelRadius'] = X[6]
 
-        applyParameters(parameters)
+        applyParameters(parameters, car_name)
 
-        result = run()
+        result = run(port, car_name)
 
         print(result)
 
@@ -72,6 +73,7 @@ class BeamNGProblem(FloatProblem):
         solution.objectives[1] = float('%.3f' % (distance - speed))  # distance - speed
         solution.objectives[2] = changed_parameter_count  # changed para num
 
+        self._q.put((port, car_name))
         return solution
 
     def get_name(self):

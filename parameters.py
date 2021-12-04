@@ -1,78 +1,64 @@
-from config import BNG_HOME, BNG_USER
-DIR_VEHICLES = BNG_USER + "/0.23/mods/unpacked"
-NAME_VEHICLE = "barstow_forEdit"
-DIR_CONFIG = DIR_VEHICLES + "/" + NAME_VEHICLE + "/vehicles/" + NAME_VEHICLE + "/"
+from config import BNG_USER
+import glob
+import json
 
-def applyParameters(parameters):
+def applyParameters(parameters, car_name):
+    DIR_CONFIG = f"{BNG_USER}/0.23/mods/unpacked/cs454_mod/vehicles/{car_name}"
+    DIR_REF = "./etk800_sample"
 
-    # parameters = {
-    #     'maxRPM': 5000,
-    #     'engineInertia': 0.3,
-    #     'engineBrakeTorque': 60,
-    #     'engineNodeWeightMul': 1.2,
-    #     'brakeMulF': 2200,
-    #     'brakeMulR': 1000,
-    #     'bodyNodeWeightMul': 1.2,
-    #     'wheelRadius': 0.4
-    # }
+    # Write weight first
+    for file in glob.glob(f"{DIR_REF}/*.jbeam"):
+        filename = file.split('\\')[-1]
+        with open(file) as f:
+            data = json.load(f)
+        for key in data:
+            if ('nodes' in data[key]):
+                node = data[key]['nodes']
+                for i, x in enumerate(node):
+                    if isinstance(x, dict) and "nodeWeight" in x:
+                        data[key]['nodes'][i]["nodeWeight"] *= parameters['nodeWeightMul']
+                    elif isinstance(x,list):
+                        for j, y in enumerate(x):
+                            if (isinstance(y, dict) and "nodeWeight"in y):
+                                data[key]['nodes'][i][j]["nodeWeight"] *= parameters['nodeWeightMul']
+        with open(f"{DIR_CONFIG}/{filename}", 'w') as f:
+            json.dump(data, f)
+    
+    with open(f"{DIR_CONFIG}/etk_engine_i6_3.0_petrol.jbeam") as f:
+        data = json.load(f)
+    data["etk_engine_i6"]["mainEngine"]["maxRPM"] = int(parameters['maxRPM'])   # 7000
+    data["etk_engine_i6"]["mainEngine"]["inertia"] = parameters['engineInertia']    # 0.14
+    data["etk_engine_i6"]["mainEngine"]["engineBrakeTorque"] = parameters['engineBrakeTorque'] #44
+    with open(f"{DIR_CONFIG}/etk_engine_i6_3.0_petrol.jbeam", 'w') as f:
+        json.dump(data, f)
+    
+    with open(f"{DIR_CONFIG}/etk800_brakes.jbeam") as f:
+        data = json.load(f)
+    data["etk800_brake_F"]["pressureWheels"][1]["brakeTorque"] = f"$=$brakestrength*{parameters['brakeMulF']}" # 3000
+    data["etk800_brake_R"]["pressureWheels"][1]["brakeTorque"] = f"$=$brakestrength*{parameters['brakeMulR']}" # 1550
+    with open(f"{DIR_CONFIG}/etk800_brakes.jbeam", 'w') as f:
+        json.dump(data, f)
 
-    JBEAM_ENGINE = DIR_CONFIG+'barstow_engine_v8.jbeam'
-    JBEAM_BRAKES = DIR_CONFIG+'barstow_brakes.jbeam'
-    JBEAM_BODY = DIR_CONFIG+'barstow_body.jbeam'
-    JBEAM_FTIRE = DIR_CONFIG+'tires_F_14x6_biasply.jbeam'
-    JBEAM_RTIRE = DIR_CONFIG+'tires_R_14x6_biasply.jbeam'
+    with open(f"{DIR_CONFIG}/tires_R_18x9_sport.jbeam") as f:
+        data = json.load(f)
+    data["tire_R_245_40_18_sport"]["pressureWheels"][8]["radius"] = parameters['wheelRadius']   # 0.325
+    with open(f"{DIR_CONFIG}/tires_R_18x9_sport.jbeam", 'w') as f:
+        json.dump(data, f)
+    
+    with open(f"{DIR_CONFIG}/tires_F_18x9_sport.jbeam") as f:
+        data = json.load(f)
+    data["tire_F_245_40_18_sport"]["pressureWheels"][8]["radius"] = parameters['wheelRadius']   # 0.325
+    with open(f"{DIR_CONFIG}/tires_F_18x9_sport.jbeam", 'w') as f:
+        json.dump(data, f)
 
-    with open(JBEAM_ENGINE, 'r') as f:
-        t = f.readlines()
-        t[45] = '        "maxRPM":{},\n'.format(int(parameters['maxRPM']))
-        t[47] = '        "inertia":{},\n'.format(parameters['engineInertia'])
-        t[49] = '        "engineBrakeTorque":{},\n'.format(parameters['engineBrakeTorque'])
-        t[196] = "         {{\"nodeWeight\":{}}},\n".format(29.5*parameters['engineNodeWeightMul'])
-        t[212] = '         ["em1r", -0.23, -1.3, 0.5, {{"nodeWeight":{}}}],\n'.format(3*parameters['engineNodeWeightMul'])
-        t[213] = '         ["em1l", 0.23, -1.3, 0.5, {{"nodeWeight":{}}}],\n'.format(3*parameters['engineNodeWeightMul'])
-    with open(JBEAM_ENGINE, 'w') as f:
-        for l in t: f.write(l)
+if __name__ == "__main__":
+    parameters = dict()
+    parameters['maxRPM'] = 7000
+    parameters['engineInertia'] = 0.14
+    parameters['engineBrakeTorque'] = 44
+    parameters['nodeWeightMul'] = 1
+    parameters['brakeMulF'] = 3000
+    parameters['brakeMulR'] = 1550
+    parameters['wheelRadius'] = 0.325
 
-    with open(JBEAM_BRAKES, 'r') as f:
-        t = f.readlines()
-        t[26] = '        {{"brakeTorque":"$=$brakestrength*{}"}},\n'.format(parameters['brakeMulF'])
-        t[65] = '        {{"brakeTorque":"$=$brakestrength*{}"}},\n'.format(parameters['brakeMulR'])
-    with open(JBEAM_BRAKES, 'w') as f:
-        for l in t: f.write(l)
-
-    with open(JBEAM_BODY, 'r') as f:
-        t = f.readlines()
-        t[87] = '        {{"nodeWeight":{}}},\n'.format(1.78*parameters['bodyNodeWeightMul'])
-        t[94] = '        {{"nodeWeight":{}}},\n'.format(3.56*parameters['bodyNodeWeightMul'])
-        t[131] = '         {{"nodeWeight":{}}},\n'.format(4.9*parameters['bodyNodeWeightMul'])
-        t[161] = '         {{"nodeWeight":{}}},\n'.format(5.5*parameters['bodyNodeWeightMul'])
-        t[168] = '         {{"nodeWeight":{}}},\n'.format(4.0*parameters['bodyNodeWeightMul'])
-        t[181] = '         {{"nodeWeight":{}}},\n'.format(4.0*parameters['bodyNodeWeightMul'])
-        t[200] = '         {{"nodeWeight":{}}},\n'.format(3.56*parameters['bodyNodeWeightMul'])
-        t[217] = '         {{"nodeWeight":{}}},\n'.format(2.1*parameters['bodyNodeWeightMul'])
-        t[258] = '         {{"nodeWeight":{}}},\n'.format(2.3*parameters['bodyNodeWeightMul'])
-        t[276] = '         {{"nodeWeight":{}}},\n'.format(1.9*parameters['bodyNodeWeightMul'])
-        t[287] = '         {{"nodeWeight":{}}},\n'.format(1.4*parameters['bodyNodeWeightMul'])
-        t[297] = '         {{"nodeWeight":{}}},\n'.format(2.3*parameters['bodyNodeWeightMul'])
-        t[302] = '         ["r1", 0.0, -0.02, 1.34, {{"nodeWeight":{},"group":["gps","barstow_windshield","barstow_roof"]}}],\n'.format(1.6*parameters['bodyNodeWeightMul'])
-        t[306] = '         ["r2", 0.0, 0.37, 1.35, {{"nodeWeight":{}}}],\n'.format(1.6*parameters['bodyNodeWeightMul'])
-        t[310] = '         ["r3", 0.0, 0.75, 1.32, {{"nodeWeight":{}}}],\n'.format(1.6*parameters['bodyNodeWeightMul'])
-        t[315] = '         ["r4", 0.0, 1.27, 1.24, {{"nodeWeight":{}}}],\n'.format(1.6*parameters['bodyNodeWeightMul'])
-        t[319] = '         {{"nodeWeight":{}}},\n'.format(2.7*parameters['bodyNodeWeightMul'])
-        t[326] = '         {{"nodeWeight":{}}},\n'.format(0.89*parameters['bodyNodeWeightMul'])
-    with open(JBEAM_BODY, 'w') as f:
-        for l in t: f.write(l)
-
-    with open(JBEAM_FTIRE, 'r') as f:
-        t = f.readlines()
-        t[103] = '        {{"radius":{}}},\n'.format(parameters['wheelRadius'])
-    with open(JBEAM_FTIRE, 'w') as f:
-        for l in t: f.write(l)
-
-    with open(JBEAM_RTIRE, 'r') as f:
-        t = f.readlines()
-        t[103] = '        {{"radius":{}}},\n'.format(parameters['wheelRadius'])
-    with open(JBEAM_RTIRE, 'w') as f:
-        for l in t: f.write(l)
-
-# applyParameters(0)
+    applyParameters(parameters, 'car0')
