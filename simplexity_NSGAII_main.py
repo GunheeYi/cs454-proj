@@ -5,14 +5,14 @@ from jmetal.algorithm.multiobjective import NSGAII
 from jmetal.operator import SBXCrossover, PolynomialMutation
 from jmetal.util.solution import print_function_values_to_file, print_variables_to_file
 from jmetal.util.termination_criterion import StoppingByEvaluations
-from jmetal.util.evaluator import MultiprocessEvaluator
+from jmetal.util.evaluator import MultiprocessEvaluator, SequentialEvaluator
 from multiprocessing import Manager
 from pathlib import Path
 from config import BNG_USER
 import shutil
 
 if __name__ == '__main__':
-    num_processes = 2
+    num_processes = 1
     Path(f"{BNG_USER}/0.23/mods/unpacked/cs454_mod/vehicles").mkdir(parents=True, exist_ok=True)
     for i in range(num_processes):
         car_path = f"{BNG_USER}/0.23/mods/unpacked/cs454_mod/vehicles/car{i}"
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         mutation=PolynomialMutation(probability=1.0 / problem.number_of_variables, distribution_index=20),
         crossover=SBXCrossover(probability=1, distribution_index=20),
         termination_criterion=StoppingByEvaluations(max_evaluations=5000),
-        population_evaluator = MultiprocessEvaluator(processes=num_processes)
+        population_evaluator = SequentialEvaluator() if (num_processes == 1) else MultiprocessEvaluator(processes=num_processes)
     )
 
     algorithm.run()
