@@ -17,7 +17,7 @@ class BeamNGProblem(FloatProblem):
 
         self.original = [7000, 0.14, 44, 1, 3000, 1550,  0.325]
         self.lower_bound = [6000, 0.1, 30, 0.8, 2500, 1250, 0.3]
-        self.upper_bound = [8000, 0.18, 60, 1.2, 3500, 1850, 0.35]
+        self.upper_bound = [8000, 0.2, 60, 1.2, 3500, 1850, 0.35]
         self._q = q
 
         FloatSolution.lower_bound = self.lower_bound
@@ -39,8 +39,16 @@ class BeamNGProblem(FloatProblem):
             width = self.upper_bound[i] - self.lower_bound[i]
             change_precision = deviation / width
             change_ratio = deviation / original
-
-            if change_precision < 0.04: X[i] = original
+            if (width >= 1000):
+                beta = 0.005
+            elif (width >= 100):
+                beta = 0.01
+            elif (width >= 1):
+                beta = 0.02
+            else:
+                beta = 0.04
+            
+            if change_precision < beta: X[i] = original
             else: changed_parameter_count += 1
 
             change_ratio_max = max(change_ratio_max, change_ratio)
