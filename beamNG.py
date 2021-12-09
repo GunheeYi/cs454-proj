@@ -71,7 +71,7 @@ def run(port, car_name):
             ego_vehicle.update_vehicle()
             parked_vehicle.update_vehicle()
 
-            if(((dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.078):
+            if(((dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.057):
                 ## If brake not applied, they will collide. Start braking
                 print("brake!")
                 break
