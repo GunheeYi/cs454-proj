@@ -65,6 +65,7 @@ def run(port, car_name, debug=False):
         ego_vehicle.control(throttle=0.8)
         no_problem = True
         for i in range(10000000):
+            past = time.time()
             sensors = bng.poll_sensors(ego_vehicle)
             ego_pos = sensors['state']['pos']
             ego_vel = sensors['state']['vel'][0]
@@ -75,11 +76,14 @@ def run(port, car_name, debug=False):
             if(((dist(ego_pos, parked_car_position)-5)/ego_vel**2) <= 0.057):
                 ## If brake not applied, they will collide. Start braking
                 break
+            current = time.time()
+            time.sleep(.05 - (current - past))
         
         if no_problem:
             ego_vehicle.control(throttle=0,brake=1.0)
             past_speed = None
             while True:
+                past = time.time()
                 sensors = bng.poll_sensors(ego_vehicle)
                 ego_pos = sensors['state']['pos']
                 ego_vel = sensors['state']['vel'][0]
@@ -97,12 +101,14 @@ def run(port, car_name, debug=False):
                     result['intensity'] = ego_damage
                     result['distance'] = dist(ego_pos, parked_car_position)
                     break
+                
+                current = time.time()
+                time.sleep(.05 - (current - past))
         
         bng.close()
     except ConnectionResetError as e:
         if (debug):
             print(e)
-
     finally:
         if (debug):
             print(result)
