@@ -8,9 +8,11 @@ import json
 
 
 def dist(tup1,tup2):
-    ax,ay=tup1[0],tup1[1]
-    bx,by=tup2[0],tup2[1]
-    return ((ax-bx)**2+(ay-by)**2)**0.5
+    ax=tup1[0]
+    bx=tup2[0]
+    '''ax,ay=tup1[0],tup1[1]
+    bx,by=tup2[0],tup2[1]'''
+    return abs(ax-bx)
 def run():
     
     with BeamNGpy('localhost', 64256, home=BNG_HOME, user=BNG_USER) as bng:
@@ -27,7 +29,7 @@ def run():
         direction_of_the_road = (0, 0, 1, -1)
 
         # Vehicle to move
-        ego_position = (-70.0, -2.0, ground_level)
+        ego_position = (-40.0, -2.0, ground_level)
         ego_vehicle = Vehicle('ego', model='barstow_forEdit', licence='ego', partConfig="vehicles/barstow_forEdit/291m.pc")
         
 
@@ -55,6 +57,7 @@ def run():
         bng.load_scenario(scenario)
         bng.switch_vehicle(ego_vehicle) # Change camera
         bng.start_scenario()
+        #time.sleep(3)
         result={}
         #while True:
             #print(scenario._get_vehicles_list())
@@ -63,6 +66,7 @@ def run():
         no_problem = True
         for i in range(10000000):
             #time.sleep(.01)
+            #start = time.time()
             if i==20 and ego_vehicle.state['vel'][0] < 0.1:
                 no_problem = False
                 break
@@ -70,15 +74,25 @@ def run():
             bng.poll_sensors(parked_vehicle)
             ego_vehicle.update_vehicle()
             parked_vehicle.update_vehicle()
-            if(dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])<18):
-                ## Obstacle is detected
+            #print(sensors)
+
+            if(((dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.078):
+                ## If brake not applied, they will collide. Start braking
                 print("brake!")
                 break
+
+            #print(time.time() - start)
+            # while True:
+            #     end = time.time()
+            #     if end - start >= 0.04:
+            #         print(end - start)
+            #         break
+            
             #if i % 10 == 0:
             #print(ego_vehicle.state['vel'])
                 #print(sensors)
             
-            if ego_vehicle.state['vel'][0] >= 13.9:
+            '''if ego_vehicle.state['vel'][0] >= 13.9:
                 ego_vehicle.control(throttle=0.07)
             elif ego_vehicle.state['vel'][0] >= 13.8:
                 ego_vehicle.control(throttle=0.08)
@@ -87,7 +101,7 @@ def run():
             elif ego_vehicle.state['vel'][0] >= 13.2:
                 ego_vehicle.control(throttle=0.1)
             else:
-                ego_vehicle.control(throttle=0.8)
+                ego_vehicle.control(throttle=0.8)'''
         if not no_problem:
             result['speed'] = 0.0
             result['intensity']=math.inf
@@ -97,18 +111,19 @@ def run():
         ## Input breaks
         ego_vehicle.control(throttle=0,brake=1.0)
         past_speed = None
+        past_dist = None
         while True:
             #time.sleep(0.1)
             sensors = bng.poll_sensors(ego_vehicle)
             bng.poll_sensors(parked_vehicle)
-            ego_vehicle.control(throttle=0, brake=1.0)
+            #ego_vehicle.control(throttle=0, brake=1.0)
             ego_vehicle.update_vehicle()
             parked_vehicle.update_vehicle()
-
+            #print(sensors)
             if sensors['damage']['damage'] > 0:
+                result['distance']=dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])
                 result['speed'] = past_speed
                 result['intensity']=sensors['damage']['damage']
-                result['distance']=dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])
                 break
             past_speed = ego_vehicle.state['vel'][0]
 
@@ -157,4 +172,4 @@ def run():
             #ego_vehicle = Vehicle('ego', model='barstow_forEdit', licence='ego', color="black")
             #bng.spawn_vehicle(ego_vehicle, pos = ego_position, rot = None, rot_quat=direction_of_the_road)
         
-run()
+print(run())
