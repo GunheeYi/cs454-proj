@@ -73,7 +73,7 @@ def run(port, car_name, debug=False):
                 no_problem = False
                 break
 
-            if(((dist(ego_pos, parked_car_position)-5)/ego_vel**2) <= 0.057):
+            if(((dist(ego_pos, parked_car_position)-5)/ego_vel**2) <= 0.055):
                 ## If brake not applied, they will collide. Start braking
                 break
             current = time.time()
