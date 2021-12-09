@@ -48,36 +48,6 @@ def run(port, car_name):
             parked_vehicle = Vehicle('parked', model='etk800', licence='parked', color="red")
             scenario.add_vehicle(parked_vehicle, pos=parked_car_position, rot=None, rot_quat=direction_of_the_road)
 
-<<<<<<< HEAD
-        # Load all stuffs into BeamNG
-    
-        bng.set_steps_per_second(60)    #60 fps
-        bng.set_deterministic()
-        scenario.make(bng)
-        bng.load_scenario(scenario)
-        bng.switch_vehicle(ego_vehicle) # Change camera
-        bng.start_scenario()
-
-        result={}
-
-        ## Throttle until obstacle is detected.
-        ego_vehicle.control(throttle=0.8)
-        no_problem = True
-        for i in range(10000000):
-
-            if i==20 and ego_vehicle.state['vel'][0] < 0.1:
-                no_problem = False
-                break
-            sensors = bng.poll_sensors(ego_vehicle)
-            bng.poll_sensors(parked_vehicle)
-            ego_vehicle.update_vehicle()
-            parked_vehicle.update_vehicle()
-
-            if(((dist(ego_vehicle.state['pos'],parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.057):
-                ## If brake not applied, they will collide. Start braking
-                print("brake!")
-                break
-=======
             # Load all stuffs into BeamNG
         
             bng.set_steps_per_second(60)    #60 fps
@@ -102,7 +72,7 @@ def run(port, car_name):
                 ego_vehicle.update_vehicle()
                 parked_vehicle.update_vehicle()
 
-                if(((dist(ego_vehicle.state['pos'], parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.078):
+                if(((dist(ego_vehicle.state['pos'], parked_vehicle.state['pos'])-5)/(ego_vehicle.state['vel'][0])**2) <= 0.057):
                     ## If brake not applied, they will collide. Start braking
                     print("brake!")
                     break
@@ -112,7 +82,6 @@ def run(port, car_name):
                 result['intensity']=math.inf
                 result['distance']=math.inf
                 return result
->>>>>>> d5212f71230ace9178a25d53575457db6d05644c
             
             ## Input breaks
             ego_vehicle.control(throttle=0,brake=1.0)
