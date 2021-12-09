@@ -25,7 +25,6 @@ class BeamNGProblem(FloatProblem):
 
     def evaluate(self, solution: FloatSolution) -> FloatSolution:
         port, car_name = self._q.get()
-        print(port, car_name)
         Vars = solution.variables
 
         X = list(map(lambda _: float('%.3f' % _), Vars[:self.number_of_variables]))
@@ -58,16 +57,11 @@ class BeamNGProblem(FloatProblem):
 
         result = run(port, car_name)
 
-        print(result)
-
         distance = result["distance"]
         speed = result["speed"]
 
         if result["speed"] != 0:
             distance = 0.0
-
-        print("distance: %f" % distance)
-        print("speed: %f" % speed)
 
         solution.objectives[0] = float('%.3f' % change_ratio_max)  # min maximum para change
         solution.objectives[1] = float('%.3f' % (distance - speed))  # distance - speed
