@@ -5,9 +5,19 @@ from jmetal.algorithm.multiobjective.random_search import RandomSearch
 from jmetal.util.solution import print_function_values_to_file, print_variables_to_file
 from jmetal.util.termination_criterion import StoppingByEvaluations
 from jmetal.core.quality_indicator import HyperVolume
+from queue import Queue
+from config import BNG_USER
+from pathlib import Path
+import shutil
 
 if __name__ == '__main__':
-    problem = BeamNGProblem()
+    CAR_NAME = "car1"
+    car_path = f"{BNG_USER}/0.23/mods/unpacked/cs454_mod/vehicles/" + CAR_NAME
+    if (not Path(car_path).exists()):
+        shutil.copytree('./etk800_sample', car_path)
+    portDirQueue = Queue()
+    portDirQueue.put((64255, CAR_NAME))
+    problem = BeamNGProblem(portDirQueue)
 
     max_evaluations = 1680
 

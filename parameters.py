@@ -61,4 +61,5 @@ if __name__ == "__main__":
     parameters['brakeMulR'] = 1550
     parameters['wheelRadius'] = 0.325
 
-    applyParameters(parameters, 'car0')
+    # confirm valid car name
+    applyParameters(parameters, 'car1')
