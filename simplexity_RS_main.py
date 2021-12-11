@@ -9,7 +9,7 @@ from jmetal.core.quality_indicator import HyperVolume
 if __name__ == '__main__':
     problem = BeamNGProblem()
 
-    max_evaluations = 5000
+    max_evaluations = 1680
 
     algorithm = RandomSearch(
         problem=problem,

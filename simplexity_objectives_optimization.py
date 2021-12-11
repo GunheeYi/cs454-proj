@@ -39,6 +39,8 @@ class BeamNGProblem(FloatProblem):
             change_precision = deviation / width
             change_ratio = deviation / original
             
+
+            # precision A
             if (width >= 1000):
                 beta = 0.005
             elif (width >= 100):
@@ -47,6 +49,16 @@ class BeamNGProblem(FloatProblem):
                 beta = 0.02
             else:
                 beta = 0.04
+
+            # precision B
+            '''if (width >= 1000):
+                beta = 0.01
+            elif (width >= 100):
+                beta = 0.02
+            elif (width >= 1):
+                beta = 0.04
+            else:
+                beta = 0.08'''
 
             if change_precision < beta: X[i] = original
             else: changed_parameter_count += 1
@@ -72,8 +84,8 @@ class BeamNGProblem(FloatProblem):
         if result["speed"] != 0:
             distance = 0.0
 
-        solution.objectives[0] = float('%.3f' % change_ratio_max)  # min maximum para change
-        solution.objectives[1] = float('%.3f' % (distance - speed))  # distance - speed
+        solution.objectives[0] = float('%.5f' % change_ratio_max)  # min maximum para change
+        solution.objectives[1] = float('%.5f' % (distance - speed))  # distance - speed
         solution.objectives[2] = changed_parameter_count  # changed para num
 
         self._q.put((port, car_name))

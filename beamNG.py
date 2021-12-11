@@ -13,11 +13,11 @@ def dist(tup1,tup2):
     return abs(ax-bx)
 
 def run(port, car_name, debug=False):
-    if debug:
-        set_up_simple_logging()
+    # if debug:
+    #     set_up_simple_logging()
     result={}
     result['speed'] = 0.0
-    result['intensity']=math.inf
+    result['intensity'] = 0.0
     result['distance']=math.inf
 
     try:
@@ -63,11 +63,12 @@ def run(port, car_name, debug=False):
                 sensors = bng.poll_sensors(ego_vehicle)
                 ego_pos = sensors['state']['pos']
                 ego_vel = sensors['state']['vel'][0]
-                if i==20 and ego_vel < 0.1:
+                if i==40 and ego_vel < 0.1:
                     no_problem = False
                     break
 
-                if(((dist(ego_pos, parked_car_position)-5)/ego_vel**2) <= 0.055):
+                # considering between 54 and 55
+                if(((dist(ego_pos, parked_car_position)-5)/ego_vel**2) <= 0.054):
                     ## If brake not applied, they will collide. Start braking
                     break
             
@@ -92,6 +93,7 @@ def run(port, car_name, debug=False):
                         result['intensity'] = ego_damage
                         result['distance'] = dist(ego_pos, parked_car_position)
                         break
+            bng.stop_scenario()
     except ConnectionResetError as e:
         if (debug):
             print(e)
@@ -103,4 +105,6 @@ def run(port, car_name, debug=False):
 # print(run())
 
 if __name__ == "__main__":
-    run(64256, 'car0', debug=True)
+    set_up_simple_logging()
+    for _ in range(5):
+        run(64256, 'car0', debug=True)
