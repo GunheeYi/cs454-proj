@@ -38,8 +38,17 @@ class BeamNGProblem(FloatProblem):
             width = self.upper_bound[i] - self.lower_bound[i]
             change_precision = deviation / width
             change_ratio = deviation / original
+            
+            if (width >= 1000):
+                beta = 0.005
+            elif (width >= 100):
+                beta = 0.01
+            elif (width >= 1):
+                beta = 0.02
+            else:
+                beta = 0.04
 
-            if change_precision < 0.04: X[i] = original
+            if change_precision < beta: X[i] = original
             else: changed_parameter_count += 1
 
             change_ratio_max = max(change_ratio_max, change_ratio)
