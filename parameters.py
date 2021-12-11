@@ -62,4 +62,4 @@ if __name__ == "__main__":
     parameters['wheelRadius'] = 0.325
 
     # confirm valid car name
-    applyParameters(parameters, 'car1')
+    applyParameters(parameters, 'car0')
