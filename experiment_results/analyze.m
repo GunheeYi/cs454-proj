@@ -67,7 +67,16 @@ for sol=1:num_sols
     count = objs(sol, 3); % changed parameters count
     for param=1:num_params
         change = abs(params(sol, param)-original(param));
-        if change >= 0.04 * width(param)
+        if width(param) >= 1000
+            beta = 0.005;
+        elseif width(param) >= 100
+            beta = 0.01;
+        elseif width(param) >= 1
+            beta = 0.02;
+        else
+            beta = 0.04;
+        end
+        if change >= beta * width(param)
             occurs(param, count) = occurs(param, count) + 1;
             changes(param, count) = changes(param, count) + change;
         end
