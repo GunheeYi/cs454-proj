@@ -24,14 +24,19 @@ NSGA = cell(size(runs_NSGA, 2));
 RS = cell(size(runs_RS, 2));
 
 for i=1:runs_NSGA
-    NSGA(i, 1) = {importdata(filenames_NSGA(i, 1), ' ')};
-    NSGA(i, 2) = {importdata(filenames_NSGA(i, 2), ' ')};
+    objectives = importdata(filenames_NSGA(i, 2), ' ');
+    params= importdata(filenames_NSGA(i, 1), ' ')
+    filterCond=objectives(:,2)<0;
+    NSGA(i, 1) = {params(filterCond,:)};
+    NSGA(i, 2) = {objectives(filterCond,:)}
 end
 for i=1:runs_RS
-    RS(i, 1) = {importdata(filenames_RS(i, 1), ' ')};
-    RS(i, 2) = {importdata(filenames_RS(i, 2), ' ')};
+    objectives = importdata(filenames_RS(i, 2), ' ');
+    params= importdata(filenames_RS(i, 1), ' ')
+    filterCond=objectives(:,2)<0;
+    RS(i, 1) = {params(filterCond,:)};
+    RS(i, 2) = {objectives(filterCond,:)};
 end
-
 
 params = [];
 objs = [];
