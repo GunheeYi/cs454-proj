@@ -26,10 +26,10 @@ filenames_RS = "./RS/" + ...
     "RS_6_VAR_A_1680_0.054.txt", "RS_6_FUN_A_1680_0.054.txt";
     "RS_7_VAR_A_1680_0.054.txt", "RS_7_FUN_A_1680_0.054.txt";
  ];
-filenames_SPEA = "./SPEA2/" + ...
+filenames_SPEA = "./SPEA/" + ...
 [
     "SPEA2_1_VAR_A_30_56_0.054.txt", "SPEA2_1_FUN_A_30_56_0.054.txt";
-];
+]
 
 runs_NSGA = size(filenames_NSGA, 1);
 runs_RS = size(filenames_RS, 1);
@@ -87,11 +87,11 @@ totalFronts = [totalFronts; objs];
 num_sols_by_count = sum(solsByRun);
 num_sols = sum(num_sols_by_count);
 
+
 % Compute IGDs, p-value and A_hat_12
 
 IGD_RS = zeros(1, runs_RS);
 IGD_NSGA = zeros(1, runs_NSGA);
-IGD_SPEA = zeros(1, runs_SPEA);
 
 [referenceFronts, ~] = paretoFront(totalFronts);
 for run=1:runs_RS
@@ -100,14 +100,9 @@ end
 for run=1:runs_NSGA
     IGD_NSGA(run) = IGD(NSGA{run, 2}, referenceFronts);
 end
-for run=1:runs_SPEA
-    IGD_SPEA(run) = IGD(SPEA{run, 2}, referenceFronts);
-end
 
-p_value_RS_NSGA = ranksum(IGD_RS, IGD_NSGA);
-p_value_NSGA_SPEA = ranksum(IGD_NSGA, IGD_SPEA);
-a12_RS_NSGA = a12(IGD_RS', IGD_NSGA');
-a12_NSGA_SPEA = a12(IGD_NSGA', IGD_SPEA');
+p_value = ranksum(IGD_RS, IGD_NSGA);
+a = a12(IGD_RS', IGD_NSGA');
 
 
 % normalize total sols per run to 30
