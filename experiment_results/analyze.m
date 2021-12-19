@@ -1,3 +1,6 @@
+% algorithm = "NSGA2";
+algorithm = "SPEA2";
+
 original = [7000, 0.14, 44, 1, 3000, 1550,  0.325];
 lb = [6000, 0.1, 30, 0.8, 2500, 1250, 0.3];
 ub = [8000, 0.18, 60, 1.2, 3500, 1850, 0.35];
@@ -13,7 +16,7 @@ filenames_NSGA = "./NSGA2/" + ...
     "NSGA2_3_VAR_A_30_56_0.054.txt", "NSGA2_3_FUN_A_30_56_0.054.txt";
     "NSGA2_4_VAR_A_30_56_0.054.txt", "NSGA2_4_FUN_A_30_56_0.054.txt";
     "NSGA2_5_VAR_A_30_56_0.054.txt", "NSGA2_5_FUN_A_30_56_0.054.txt";
-    "NSGA2_6_VAR_A_30_56_0.054_itHadErrorButGotAResult.txt", "NSGA2_6_FUN_A_30_56_0.054_itHadErrorButGotAResult.txt";
+    "NSGA2_6_VAR_A_30_56_0.054.txt", "NSGA2_6_FUN_A_30_56_0.054.txt";
     "NSGA2_7_VAR_A_30_56_0.054.txt", "NSGA2_7_FUN_A_30_56_0.054.txt";
  ];
 filenames_RS = "./RS/" + ...
@@ -29,6 +32,12 @@ filenames_RS = "./RS/" + ...
 filenames_SPEA = "./SPEA2/" + ...
 [
     "SPEA2_1_VAR_A_30_56_0.054.txt", "SPEA2_1_FUN_A_30_56_0.054.txt";
+    "SPEA2_2_VAR_A_30_56_0.054.txt", "SPEA2_2_FUN_A_30_56_0.054.txt";
+    "SPEA2_3_VAR_A_30_56_0.054.txt", "SPEA2_3_FUN_A_30_56_0.054.txt";
+    "SPEA2_4_VAR_A_30_56_0.054.txt", "SPEA2_4_FUN_A_30_56_0.054.txt";
+    "SPEA2_5_VAR_A_30_56_0.054.txt", "SPEA2_5_FUN_A_30_56_0.054.txt";
+    "SPEA2_6_VAR_A_30_56_0.054.txt", "SPEA2_6_FUN_A_30_56_0.054.txt";
+    "SPEA2_7_VAR_A_30_56_0.054.txt", "SPEA2_7_FUN_A_30_56_0.054.txt";
 ];
 
 runs_NSGA = size(filenames_NSGA, 1);
@@ -67,23 +76,38 @@ totalFronts = [];
 objs = [];
 
 for run=1:runs_RS
-    totalFronts = [objs; RS{run, 2}];
+    totalFronts = [totalFronts; RS{run, 2}];
 end
+
+if algorithm=="SPEA2"
+    solsByRun = zeros(runs_SPEA, num_params);
+elseif algorithm=="NSGA2"
+    solsByRun = zeros(runs_NSGA, num_params);
+end
+
 for run=1:runs_SPEA
-    totalFronts = [objs; SPEA{run, 2}];
-end
-
-
-solsByRun = zeros(runs_NSGA, num_params);
-for run=1:runs_NSGA
-    params = [params; NSGA{run, 1}];
-    objs = [objs; NSGA{run, 2}];
-    pfs = size(NSGA{run, 2}, 1);
-    for pf=1:pfs
-        solsByRun(run, NSGA{run, 2}(pf, 3)) = solsByRun(run, NSGA{run, 2}(pf, 3)) + 1;
+    if algorithm=="SPEA2"
+        params = [params; SPEA{run, 1}];
+        objs = [objs; SPEA{run, 2}];
+        pfs = size(SPEA{run, 2}, 1);
+        for pf=1:pfs
+            solsByRun(run, SPEA{run, 2}(pf, 3)) = solsByRun(run, SPEA{run, 2}(pf, 3)) + 1;
+        end
     end
+    totalFronts = [totalFronts; SPEA{run, 2}];
 end
-totalFronts = [totalFronts; objs];
+
+for run=1:runs_NSGA
+    if algorithm=="NSGA2"
+        params = [params; NSGA{run, 1}];
+        objs = [objs; NSGA{run, 2}];
+        pfs = size(NSGA{run, 2}, 1);
+        for pf=1:pfs
+            solsByRun(run, NSGA{run, 2}(pf, 3)) = solsByRun(run, NSGA{run, 2}(pf, 3)) + 1;
+        end
+    end
+    totalFronts = [totalFronts; NSGA{run, 2}];
+end
 num_sols_by_count = sum(solsByRun);
 num_sols = sum(num_sols_by_count);
 
@@ -105,16 +129,25 @@ for run=1:runs_SPEA
 end
 
 p_value_RS_NSGA = ranksum(IGD_RS, IGD_NSGA);
+p_value_RS_SPEA = ranksum(IGD_RS, IGD_SPEA);
 p_value_NSGA_SPEA = ranksum(IGD_NSGA, IGD_SPEA);
 a12_RS_NSGA = a12(IGD_RS', IGD_NSGA');
+a12_RS_SPEA = a12(IGD_RS', IGD_SPEA');
 a12_NSGA_SPEA = a12(IGD_NSGA', IGD_SPEA');
 
-
 % normalize total sols per run to 30
-for run=1:runs_NSGA
-    pfs = size(NSGA{run, 2}, 1);
-    solsByRun(run, :) = solsByRun(run, :) ./ pfs * 30;
+if algorithm=="NSGA2"
+    for run=1:runs_NSGA
+        pfs = size(NSGA{run, 2}, 1);
+        solsByRun(run, :) = solsByRun(run, :) ./ pfs * 30;
+    end
+elseif algorithm=="SPEA2"
+    for run=1:runs_SPEA
+        pfs = size(SPEA{run, 2}, 1);
+        solsByRun(run, :) = solsByRun(run, :) ./ pfs * 30;
+    end
 end
+
 
 boxplot(solsByRun);
 bx = findobj('Tag','boxplot');
